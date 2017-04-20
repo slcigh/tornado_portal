@@ -1,0 +1,308 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">作品池</h1>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button class="changeBtn" cN="example-1" xN="example-2">最新</button>
+        <button class="changeBtn" cN="example-2" xN="example-1">热门</button>
+        <button id="exportNew" cN="example-1" xN="example-2">导入最新</button>
+        <button id="exportHot" cN="example-2" xN="example-1">导入热门</button>
+        <a href="" onclick="addFn1()">
+            <i class="fa-plus-square">添加</i>
+        </a>
+    </div>
+    <div class="panel-body">
+        <div id="example-1">
+            <div style="width: 48%;display: inline-block;vertical-align: top;border-right: 1px solid #ccc;">
+                <div style="display: block;color: #444;font-size: 16px;text-align: center;font-style: oblique;">
+                    最新池
+                </div>
+                <table class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="dataShowO"></tbody>
+                </table>
+            </div>
+            <div style="width: 48%;display: inline-block;vertical-align: top;border-right: 1px solid #ccc;">
+                <div style="display: block;color: #444;font-size: 16px;text-align: center;font-style: oblique;">
+                    缓冲池
+                </div>
+                <table class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="dataShowU"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="example-2" class="hidden">
+            <div style="width: 48%;display: inline-block;vertical-align: top;border-right: 1px solid #ccc;">
+                <div style="display: block;color: #444;font-size: 16px;text-align: center;font-style: oblique;">
+                    热门池
+                </div>
+                <table class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="dataShowX"></tbody>
+                </table>
+            </div>
+            <div style="width: 48%;display: inline-block;vertical-align: top;border-right: 1px solid #ccc;">
+                <div style="display: block;color: #444;font-size: 16px;text-align: center;font-style: oblique;">
+                    缓冲池
+                </div>
+                <table class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>作品ID</th>
+                        <th>作品类型</th>
+                        <th>作品名</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="dataShowY"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function start() {
+        $.ajax({
+            url: '/api/v1/portal/index/recommend_post/?type=1',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].pid + '</td>';
+                    str += '<td>' + data[i].type + '</td>';
+                    str += '<td>' + data[i].name + '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowO').html(' ');
+                $('#dataShowO').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+        $.ajax({
+            url: '/api/v1/portal/index/recommend_post/?type=1&temp=1',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].pid + '</td>';
+                    str += '<td>' + data[i].type + '</td>';
+                    str += '<td>' + data[i].name + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li id="del_post' + i + '" onclick="del_post(' + data[i].pid + ')" value="' + data[i].pid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowU').html(' ');
+                $('#dataShowU').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function start2() {
+        $.ajax({
+            url: '/api/v1/portal/index/recommend_post/?type=2',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].pid + '</td>';
+                    str += '<td>' + data[i].type + '</td>';
+                    str += '<td>' + data[i].name + '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowX').html(' ');
+                $('#dataShowX').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+        $.ajax({
+            url: '/api/v1/portal/index/recommend_post/?type=2&temp=1',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].pid + '</td>';
+                    str += '<td>' + data[i].type + '</td>';
+                    str += '<td>' + data[i].name + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li onclick="del_post2(' + data[i].pid + ')" value="' + data[i].pid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowY').html(' ');
+                $('#dataShowY').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    start();
+    start2();
+    $('.changeBtn').click(function () {
+        var idN = $(this).attr('cN');
+        var idX = $(this).attr('xN');
+        $('#' + idN).removeClass('hidden');
+        $('#' + idX).addClass('hidden');
+    });
+    $('#exportHot').click(function () {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/export_pool/',
+                method: 'post',
+                data: {
+                    type: "hot_post"
+                },
+                success: function (data) {
+                    start();
+                    start2();
+                    var idN = $(this).attr('cN');
+                    var idX = $(this).attr('xN');
+                    $('#' + idN).removeClass('hidden');
+                    $('#' + idX).addClass('hidden');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    });
+    $('#exportNew').click(function () {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/export_pool/',
+                method: 'post',
+                data: {
+                    type: "new_post"
+                },
+                success: function (data) {
+                    start();
+                    start2();
+                    var idN = $(this).attr('cN');
+                    var idX = $(this).attr('xN');
+                    $('#' + idN).removeClass('hidden');
+                    $('#' + idX).addClass('hidden');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    });
+    function addFn1() {
+        jQuery("#modal-role").modal("show", {backdrop: "static"});
+    }
+    function del_post(str) {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/index/recommend_post/',
+                method: 'post',
+                data: {
+                    op: "del",
+                    rid: str
+                },
+                success: function (data) {
+                    start();
+                    start2();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    }
+    function del_post2(str) {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/index/recommend_post/',
+                method: 'post',
+                data: {
+                    op: "del",
+                    rid: str
+                },
+                success: function (data) {
+                    start();
+                    start2();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    }
+</script>

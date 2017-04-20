@@ -1,0 +1,183 @@
+<!-- Modal 6 (Long Modal)-->
+<div ng-controller="creationBox" class="modal fade" id="modal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="row btnRow">
+                <div class="bgBox">
+                   <div class="valBox ptop30">
+                       <div style="position: relative;left: 0;top: 0;width: 100%;padding: 12px;" class="addBooksCover">
+                           <h2>新增画册</h2>
+                           <div class="infoBox">
+
+                               <div class="leftDec">
+                                   角色
+                               </div>
+                               <div class="rightDec" id='element_id'>
+                                   <div class="headlineInfo">
+                                        <select class="role" id="add_role"> </select>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="infoBox">
+                               <div class="leftDec">
+                                   标题
+                               </div>
+                               <div class="rightDec">
+                                   <div class="headlineInfo">
+                                       <input type="text" ng-model="fd.floorN" class="headline" placeholder="请输入10字以内的标题">
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="infoBox">
+                               <div class="leftDec">
+                                   内容
+                               </div>
+                               <div class="rightDec">
+                                   <div class="substanceInfo">
+                        <textarea class="substance" ng-model="fd.floorD" rows="6" cols="20">
+
+                        </textarea>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="infoBox">
+                               <div class="leftDec">
+                                   封面
+                               </div>
+                               <div class="rightDec">
+                                   <div class="bookCover">
+                                       <div class="acquiescent" ng-repeat="i in data.faceL">
+                                           <img srcId="{{i.id}}" ng-src="{{i.image}}" alt="">
+                                       </div>
+                                       <div class="acquiescentSelf">
+                                           <div class="chooseImg">
+                                               <span>自定义封面</span>
+                                               <form id="coverArticleForm">
+                                                   <input accept="image.jpg,image.png" name="image" id="coverArticleF" class="fileStyle"
+                                                          type="file">
+                                                   <input type="hidden" name="location" value="role/post/">
+                                               </form>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="infoBox cropDraw cropDraw2">
+                               <div class="leftDec">
+                                   封面截取
+                               </div>
+                               <div class="rightDec">
+                                   <div class="coverInterception clippingBox clippingBox1 hidden" id="cover_2">
+                                       <div class="imgHeadShow">
+                                           <img id="creatB" src="img/dynamic/bookImg.jpg" alt="">
+                                       </div>
+                                       <div class="magnifierImg magnifierImgB1" id="creatBShowBox">
+                                           <div class="magnifierShowBox" id="creatBShowB1">
+                                               <img src="img/dynamic/bookImg.jpg" alt="">
+                                           </div>
+                                           <span>封面预览</span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="btnBox">
+                               <div class="isOkBtn" ng-click="fun.createDrawFloor()">确定</div>
+                               <div class="isErrBtn" ng-click="fun.closeBtn()">取消</div>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/thirdParty/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/thirdParty/jcrop/jquery.Jcrop.min.css">
+<link rel="stylesheet" type="text/css" href="/thirdParty/wysiwyg/css/wysiwyg-editor.css">
+<link rel="stylesheet" type="text/css" href="/css/creationWork.css">
+
+<script src="/assets/ng/nav.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/cookie/jquery.cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/json/json2.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
+
+
+
+
+
+<script>
+    $.cookie('role_id',12);
+    // Create variables (in this scope) to hold the API and image size
+    $('.closeBtn').click(function () {
+        $('.floorBox').addClass('hidden');
+        $('.cropDraw2').slideUp();
+        $('.floorBox .bookCover .acquiescent').eq(0).click();
+    });
+    $('.addBooks').click(function () {
+        $('.addBooksCover h2').html('新增书籍');
+        $('.floorBox').removeClass('hidden');
+        $('.floorBox .bookCover .acquiescent').eq(0).click();
+
+    });
+    $('.addImges').click(function () {
+        $('.addBooksCover h2').html('新增画册');
+        $('.floorBox').removeClass('hidden');
+        $('.floorBox .bookCover .acquiescent').eq(0).click();
+    });
+
+    var $editor = $('#textInfo').wysiwyg({
+        classes: 'some-more-classes',
+        toolbar: 'top-selection',
+        buttons: {
+            insertlink: {
+                title: 'Insert link',
+                image: '关联角色'
+            }
+        },
+        submit: {
+            title: 'Submit',
+            image: '确定'
+        }
+    });
+    $('.wysiwyg-editor').focus(function () {
+        $(this).addClass('outBorder');
+    });
+    $('.wysiwyg-editor').blur(function () {
+        $(this).removeClass('outBorder');
+    });
+    $('body').on('click', '.linkRolesUl .addRolesLink', function () {
+        var val_ = $(this).attr('href_l');
+        $('.addRolesLink').removeClass('active');
+        $(this).addClass('active');
+        $('.wysiwyg-toolbar-form .wysiwyg-input').val(val_);
+    });
+
+    function findRole(strc) {
+        $.ajax({
+            url: httpUrl + 'roles/simple/?name=' + strc,
+            method: 'get',
+            success: function (data) {
+                console.log('this is roles a link')
+                console.log(data)
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<li class="addRolesLink" href_l="rolesShow.html#/dynamic/' + data[i].id + '">';
+                    str += '<img src="' + data[i].avatar + '" alt="">';
+                    str += '<span>' + data[i].name + '</span>';
+                    str += '</li>';
+                }
+                $('.linkRolesUl').html(' ');
+                $('.linkRolesUl').html(str);
+                str = ' '
+            }
+        })
+    }
+
+</script>
+

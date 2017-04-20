@@ -1,0 +1,67 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">任务统计</h1>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="changeBtn active" cN="example-1">任务统计</span>
+    </div>
+    <div class="panel-body">
+        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>完成任务数</th>
+                <th>角色等级</th>
+                <th>角色经验</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>完成任务数</th>
+                <th>角色等级</th>
+                <th>角色经验</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowO"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var oneDo;
+    var oneDot;
+    function start() {
+        $.ajax({
+            url: '/api/v1/portal/role/task/',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].rid + '</td>';
+                    str += '<td>' + data[i].role_name + '</td>';
+                    str += '<td>' + data[i].finished_task_count + '</td>';
+                    str += '<td>' + data[i].role_level + '</td>';
+                    str += '<td>' + data[i].role_exp + '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowO').html(' ');
+                $('#dataShowO').html(str);
+                str = ' ';
+                oneDo = $("#example-1").dataTable({
+                    aLengthMenu: [
+                        [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+                    ]
+                });
+            },
+            error: function (err) {
+            }
+        });
+    }
+    start();
+</script>

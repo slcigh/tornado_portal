@@ -1,0 +1,340 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">DataTable</h1>
+        <p class="description">作品数据展示</p>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">阵营作品</h3>
+        <div class="panel-options">
+            <a href="#" data-toggle="panel">
+                <span class="collapse-icon">&ndash;</span>
+                <span class="expand-icon">+</span>
+            </a>
+            <a href="" onclick="addFn()">
+                <i class="fa-plus-square"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+        });
+        </script>
+        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>作品id</th>
+                    <th>作品名称</th>
+                    <th>隶属阵营</th>
+                    <th>隶属章节</th>
+                    <th>发布时间</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>作品id</th>
+                    <th>作品名称</th>
+                    <th>隶属阵营</th>
+                    <th>隶属章节</th>
+                    <th>发布时间</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                </tr>
+                </tr>
+            </tfoot>
+            <tbody id="dataShow">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="modal-2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">
+                    <span class="changeBtn active" cN="leftBtn">修改作品</span>
+                </h4>
+            </div>
+            <div class="row btnRow" id="leftBtn">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="fix_id">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="fix_name" class="control-label">作品名称</label>
+                                <input type="text" class="form-control" id="fix_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fix_camp" class="control-label">隶属阵营</label>
+                                <!--                                 <input type="text" class="form-control" id="fix_camp">
+ -->
+                                <select class="camp" id="fix_camp"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fix_chapter" class="control-label">隶属章节</label>
+<!--                                 <input type="text" class="form-control" id="fix_chapter">
+ -->
+                                <select class="camp" id="fix_chapter"></select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="fix_introduce" class="control-label">作品简介</label>
+                                <input type="text" class="form-control" id="fix_introduce">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group no-margin">
+                                <label for="fix_content" class="control-label"> 作品详情 </label>
+                                <textarea class="form-control autogrow" id="fix_content"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" onclick="upFn()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="modal-3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">
+                    <span class="changeBtn" cN="leftBtn">作品详情</span>
+                </h4>
+            </div>
+            <div class="row btnRow">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="txtDec" id="txtDec">
+                        </div>
+                        <div class="imgDec" id="imgDec">
+                            <!-- <img src="assets/images/clouds.png" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/thirdParty/jquery/jquery.cxselect.min.js"></script>
+<script>
+var dataBase = {};
+var oneDo;
+
+function tableDate(fn) {
+    var fn = fn || function() {};
+    $.ajax({
+        url: '/api/v1/camps/products/',
+        type: "get",
+        success: function(data) {
+            dataBase = data;
+            var str = ' ';
+            // var dec_ = data.dec;
+            // console.log('data====')
+            // console.log(data.length)
+            for (var i = 0; i < data.length; i++) {
+                str += '<tr>';
+                str += '<td>' + data[i].id + '</td>';
+                str += '<td>' + data[i].title + '</td>';
+                str += '<td>' + data[i].camp.name + '</td>';
+                str += '<td>' + data[i].chapter.name + '</td>';
+                str += '<td>' + data[i].create_time + '</td>';
+                str += '<td class="moreDec"  onclick="showMore(' + i + ')">详情</td>';
+                // str += '<td>' + dec_[i].a4 + '</td>';
+                str += '<td>';
+                str += '<ul class="doingBtns">';
+                str += '<li onclick="show_confirm(' + data[i].camp.id + ', ' + data[i].id + ')">';
+                str += '删';
+                str += '</li>';
+                str += '<li onclick="subFn(' + i + ')">';
+                str += '改';
+                str += '</li>';
+                str += '</ul>';
+                str += '</td>';
+                str += '</tr>';
+            }
+            $('#dataShow').html(' ');
+            $('#dataShow').html(str);
+            str = ' ';
+            console.log('this is yes!!');
+
+            oneDo = $("#example-1").dataTable({
+                aLengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ]
+            });
+
+        },
+        error: function(err) {}
+    });
+}
+tableDate();
+
+$('.changeBtn').click(function() {
+    var idN = $(this).attr('cN');
+    $('.changeBtn').removeClass('active');
+    $(this).addClass('active');
+    $('.modal-content .btnRow').addClass('hidden');
+    $('#' + idN).removeClass('hidden');
+});
+
+function show_confirm(camp_id, post_id) {
+    var r = confirm("是否要删除!");
+    if (r == true) {
+
+        url = "/api/v1/camps/" + camp_id + '/products/' + post_id + '/';
+
+        $.ajax({
+            url: url,
+            type: "delete",
+            success: function(data) {
+                $('#dataShow').html(' ');
+                oneDo.fnDestroy();
+                tableDate();
+            },
+            error: function(err) {
+                alert('删除失败');
+            }
+        });
+    } else {
+        alert("You pressed Cancel!");
+    }
+}
+
+function addFn() {
+    jQuery("#modal-1").modal("show", {
+        backdrop: "static"
+    });
+    $.ajax({
+        url: '/api/v1/camps/chapters/',
+        type: "get",
+        success: function(data) {
+            $('#element_id').cxSelect({
+                selects: ['camp', 'chapter_index'], // 数组，请注意顺序
+                data: data,
+                jsonName: 'name',
+                jsonValue: 'value',
+                jsonSub: 'sub'
+            });
+        },
+        error: function(err) {}
+    });
+}
+
+function showMore(num) {
+    $('#txtDec').html(dataBase[num].content);
+
+
+    jQuery("#modal-3").modal("show", {
+        backdrop: "static"
+    });
+    $('.modal-backdrop').addClass('hidden');
+    var strF = "<div class='modal-backdrop fade in'></div>";
+    $('.main-content').append(strF);
+    $('.close').click(function() {
+        $('#txtDec').html(' ');
+        $('#imgDec').html(' ');
+        $('.modal-backdrop').remove();
+    });
+
+}
+
+
+function subFn(idNum) {
+    jQuery("#modal-2").modal("show", {
+        backdrop: "static"
+    });
+    $('.modal-backdrop').addClass('hidden');
+    var strF = "<div class='modal-backdrop fade in'></div>";
+    $('.main-content').append(strF);
+
+    $("#fix_id").val(dataBase[idNum].id);
+
+    $("#fix_name").val(dataBase[idNum].title);
+
+    // $("#fix_camp").val(dataBase[idNum].camp.name);
+
+
+    var option = $("<option>").val(dataBase[idNum].camp.id).text(dataBase[idNum].camp.name);
+
+    $("#fix_camp").append(option);
+    $("#fix_camp").attr('disabled', true);
+
+    var chapter_option = $("<option>").val(dataBase[idNum].chapter.id).text(dataBase[idNum].chapter.name);
+
+    $("#fix_chapter").append(chapter_option);
+    $("#fix_chapter").attr('disabled', true);
+
+
+    $("#fix_introduce").val(dataBase[idNum].introduce);
+
+    $("#fix_content").val(dataBase[idNum].content);
+
+    $('.close').click(function() {
+        $('.modal-backdrop').remove();
+    });
+}
+
+
+
+function upFn() {
+
+    data = {
+        'title': $("#fix_name").val(),
+        'introduce': $('#fix_introduce').val(),
+        'content': $('#fix_content').val()
+    };
+
+    console.log(data);
+
+    camp_id = $("#fix_camp").val();
+
+    product_id = $("#fix_id").val();
+
+    url = '/api/v1/camps/' + camp_id + '/products/' + product_id + '/';
+
+    $.ajax({
+        url: url,
+        type: "patch",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        success: function(data) {
+            window.location.reload()
+        },
+        error: function(err) {
+            alert(err.responseText)
+        }
+    });
+
+}
+</script>

@@ -1,0 +1,74 @@
+<!-- Modal 6 (Long Modal)-->
+<div class="modal fade" id="modal-role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="row btnRow" id="leftBtn">
+                <form id="banner_form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label ">
+                            类型
+                        </label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="type">
+                                <option value="1">首页banner</option>
+                                <option value="2">角色banner</option>
+                                <option value="3">首页移动banner</option>
+                                <option value="4">角色移动banner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label ">
+                            url
+                        </label>
+                        <div class="col-sm-10">
+                            <input name="url" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label ">
+                            image
+                        </label>
+                        <div class="col-sm-10">
+                            <input name="image" type="file">
+                        </div>
+                    </div>
+                    <div>
+                        <input type='submit' value='Submit'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#banner_form").submit(function (e) {
+        var formdata = new FormData($('#banner_form')[0]);
+        $.ajax({
+            url: '/api/v1/portal/index/banner/',
+            method: 'post',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.errors) {
+                    console.log(data.errors);
+                } else {
+                    start();
+                    start2();
+                    start3();
+                    start4();
+                    $('#modal-role .close').click();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    })
+
+</script>

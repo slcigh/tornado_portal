@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" id="ng-app" ng-app="home">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Xenon Boostrap Admin Panel"/>
+    <meta name="author" content=""/>
+
+    <title>HOME</title>
+    <link rel="stylesheet" href="/static/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="/static/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-tweaks.css">
+    <link rel="stylesheet" href="/static/css/xenon-core.css">
+    <link rel="stylesheet" href="/static/css/xenon-forms.css">
+    <link rel="stylesheet" href="/static/css/xenon-components.css">
+    <link rel="stylesheet" href="/static/css/xenon-skins.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+
+    <link rel="apple-touch-icon" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" href="/static/images/favicon/favicon-j.ico">
+
+</head>
+<body class="page-body" ng-controller="homeShow">
+<div class="page-container">
+    <div class="sidebar-menu toggle-others fixed">
+        <div class="sidebar-menu-inner">
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="javascript:void(0)" class="logo-expanded">
+                        <img src="/static/images/common/jj.png" width="80" alt=""/>
+                    </a>
+                    <a href="dashboard-1.html" class="logo-collapsed">
+                        <img src="/static/images/common/J.png" width="40" alt=""/>
+                    </a>
+                </div>
+
+                <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+                <div class="mobile-menu-toggle visible-xs">
+                    <a href="#" data-toggle="user-info-menu">
+                        <i class="fa-bell-o"></i>
+                        <span class="badge badge-success">7</span>
+                    </a>
+                    <a href="#" data-toggle="mobile-menu">
+                        <i class="fa-bars"></i>
+                    </a>
+                </div>
+            </header>
+            <ul id="main-menu" class="main-menu">
+                <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+                <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+                <li class="active opened active">
+                    <a href="javascript:void(0)">
+                        <i class="linecons-database"></i>
+                        <span class="title">所有数据</span>
+                    </a>
+                    <ul>
+                        <li ng-repeat="i in data.listHtml" ng-if="i.type == 0">
+                            <!--<a href="javascript:void(0)" ng-click="url_.rowUrl = i.url;url_.floorUrl = i.f_url">-->
+                            <!--<a ng-href="{{ i.routeName }}" ng-click="url_.floorUrl = i.f_url">-->
+                            <a href="" ng-click="fun.tohref( i.routeName , i.f_url);">
+                                <span class="title" ng-bind="i.name"></span>
+                            </a>
+                        </li>
+                        <li ng-repeat="i in data.listHtml" ng-if="i.type == 1">
+                            <a href="">
+                                <span class="title" ng-bind="i.name"></span>
+                            </a>
+                            <ul>
+                                <li ng-repeat="j in i.child">
+                                    <a ng-click="fun.tohref( j.routeName , j.f_url )">
+                                        <i class="entypo-flow-line"></i>
+                                        <span class="title" ng-bind="j.name"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <nav class="navbar user-info-navbar" role="navigation">
+            <!-- Left links for user info navbar -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <li class="hidden-sm hidden-xs">
+                    <a href="#" data-toggle="sidebar">
+                        <i class="fa-bars"></i>
+                    </a>
+                </li>
+                <li class="dropdown hover-line">
+                    <ul class="dropdown-menu messages">
+                        <li>
+                            <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+                                <li class="active"><!-- "active" class means message is unread -->
+                                    <a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+
+                                        <span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+											<span class="line">
+												<strong>Salma Nyberg</strong>
+												<span class="light small">- 2 days ago</span>
+											</span>
+
+                                        <span class="line desc small">
+												Oh he decisively impression attachment friendship so if everything.
+											</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+											<span class="line">
+												Hayden Cartwright
+												<span class="light small">- a week ago</span>
+											</span>
+
+                                        <span class="line desc small">
+												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+											</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+                                        <span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+                                    </a>
+                                </li>
+                                <!-- Repeated -->
+                                <li class="active"><!-- "active" class means message is unread -->
+                                    <a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+
+                                        <span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+
+                                        <span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="external">
+                            <a href="blank-sidebar.html">
+                                <span>All Messages</span>
+                                <i class="fa-link-ext"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!--<div class="row" ng-include="url_.rowUrl" onload="fun.ajax_()"></div>-->
+        <div class="row" ng-view=""></div>
+        <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- Add your copyright text here -->
+                <div class="footer-text">
+                    &copy; 2017
+                    <strong>Jiangjie</strong>
+                </div>
+                <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<div class="page-loading-overlay">
+    <div class="loader-2"></div>
+</div>
+<div class="row" ng-include="url_.floorUrl"></div>
+
+<!-- Bottom Scripts -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/TweenMax.min.js"></script>
+<script type="text/javascript" src="/static/js/resizeable.js"></script>
+<script type="text/javascript" src="/static/js/joinable.js"></script>
+<script type="text/javascript" src="/static/js/xenon-api.js"></script>
+<script type="text/javascript" src="/static/js/xenon-toggles.js"></script>
+<script type="text/javascript" src="/static/third/angular/angular.min.js"></script>
+<script type="text/javascript" src="/static/third/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="/static/ng/home.js"></script>
+<script type="text/javascript" src="/static/js/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/js/datatables/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+<script type="text/javascript" src="/static/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="/static/js/xenon-custom.js"></script>
+<script type="text/javascript" src="/static/third/jquery.combo.select.js"></script>
+
+
+</body>
+</html>

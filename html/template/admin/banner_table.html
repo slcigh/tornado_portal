@@ -1,0 +1,331 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">Banner</h1>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button class="changeBtn" cN="example-1" dn1="example-2" dn2="example-3" dn3="example-4">首页Banner</button>
+        <button class="changeBtn" cN="example-2" dn1="example-1" dn2="example-3" dn3="example-4">角色Banner</button>
+        <button class="changeBtn" cN="example-3" dn1="example-2" dn2="example-1" dn3="example-4">首页移动Banner</button>
+        <button class="changeBtn" cN="example-4" dn1="example-2" dn2="example-3" dn3="example-1">角色移动Banner</button>
+        <a href="" onclick="addFn1()">
+            <i class="fa-plus-square">添加</i>
+        </a>
+    </div>
+    <div class="panel-body">
+        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowO"></tbody>
+        </table>
+        <table id="example-2" class="table table-striped table-bordered hidden" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowU"></tbody>
+        </table>
+        <table id="example-3" class="table table-striped table-bordered hidden" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowM"></tbody>
+        </table>
+        <table id="example-4" class="table table-striped table-bordered hidden" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>url</th>
+                <th>图片url</th>
+                <th>是否使用</th>
+                <th>ACTION</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowN"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function start() {
+        $.ajax({
+            url: '/api/v1/portal/index/banner/?type=1',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].url + '</td>';
+                    str += '<td>' + data[i].image + '</td>';
+                    str += '<td>' + data[i].use + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li onclick="dis_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '停用';
+                    str += '</li>';
+                    str += '<li onclick="e_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '启用';
+                    str += '</li>';
+                    str += '<li onclick="del_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowO').html(' ');
+                $('#dataShowO').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function start2() {
+        $.ajax({
+            url: '/api/v1/portal/index/banner/?type=2',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].url + '</td>';
+                    str += '<td>' + data[i].image + '</td>';
+                    str += '<td>' + data[i].use + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li onclick="dis_role(' + data[i].rid + ',' + '2' + ')" value="' + data[i].rid + '" >';
+                    str += '停用';
+                    str += '</li>';
+                    str += '<li onclick="e_role(' + data[i].rid + ',' + '2' + ')" value="' + data[i].rid + '" >';
+                    str += '启用';
+                    str += '</li>';
+                    str += '<li onclick="del_role(' + data[i].rid + ',' + '2' + ')" value="' + data[i].rid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowU').html(' ');
+                $('#dataShowU').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function start3() {
+        $.ajax({
+            url: '/api/v1/portal/index/banner/?type=3',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].url + '</td>';
+                    str += '<td>' + data[i].image + '</td>';
+                    str += '<td>' + data[i].use + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li onclick="dis_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '停用';
+                    str += '</li>';
+                    str += '<li onclick="e_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '启用';
+                    str += '</li>';
+                    str += '<li onclick="del_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowM').html(' ');
+                $('#dataShowM').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function start4() {
+        $.ajax({
+            url: '/api/v1/portal/index/banner/?type=4',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].url + '</td>';
+                    str += '<td>' + data[i].image + '</td>';
+                    str += '<td>' + data[i].use + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li onclick="dis_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '停用';
+                    str += '</li>';
+                    str += '<li onclick="e_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '启用';
+                    str += '</li>';
+                    str += '<li onclick="del_role(' + data[i].rid + ',' + '3' + ')" value="' + data[i].rid + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowN').html(' ');
+                $('#dataShowN').html(str);
+                str = ' ';
+            },
+            error: function (err) {
+            }
+        });
+    }
+    $('.changeBtn').click(function () {
+        var idN = $(this).attr('cN');
+        var dn1 = $(this).attr('dn1');
+        var dn2 = $(this).attr('dn2');
+        var dn3 = $(this).attr('dn3');
+        $('#' + idN).removeClass('hidden');
+        $('#' + dn1).addClass('hidden');
+        $('#' + dn2).addClass('hidden');
+        $('#' + dn3).addClass('hidden');
+    });
+    start();
+    start2();
+    start3();
+    start4();
+    function addFn1() {
+        jQuery("#modal-role").modal("show", {backdrop: "static"});
+    }
+    function dis_role(str, type) {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/index/banner/',
+                method: 'post',
+                data: {
+                    op: "disable",
+                    rid: str
+                },
+                success: function (data) {
+                    if (type == 1) {
+                        start()
+                    } else if (type == 2) {
+                        start2()
+                    } else if (type == 3) {
+                        start3()
+                    } else if (type == 4) {
+                        start4()
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    }
+    function del_role(str, type) {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/index/banner/',
+                method: 'post',
+                data: {
+                    op: "del",
+                    rid: str
+                },
+                success: function (data) {
+                    if (type == 1) {
+                        start()
+                    } else if (type == 2) {
+                        start2()
+                    } else if (type == 3) {
+                        start3()
+                    } else if (type == 4) {
+                        start4()
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    }
+    function e_role(str, type) {
+        if (confirm("确定？")) {
+            $.ajax({
+                url: '/api/v1/portal/index/banner/',
+                method: 'post',
+                data: {
+                    op: "enable",
+                    rid: str
+                },
+                success: function (data) {
+                    if (type == 1) {
+                        start()
+                    } else if (type == 2) {
+                        start2()
+                    } else if (type == 3) {
+                        start3()
+                    } else if (type == 4) {
+                        start4()
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+        }
+    }
+</script>

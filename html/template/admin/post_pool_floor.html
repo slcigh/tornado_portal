@@ -1,0 +1,70 @@
+<!-- Modal 6 (Long Modal)-->
+<div class="modal fade" id="modal-role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="row btnRow" id="leftBtn">
+                <form id="role_pool_form">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <select class="form-control" name="type">
+                                <option value="1">最新</option>
+                                <option value="2">热门</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <select id='rid_select' class="form-control" name="pid">
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <input type='submit' value='Submit'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $.ajax({
+        url: '/api/v1/portal/index/recommend_post/?type=3',
+        type: "get",
+        success: function (data) {
+            var str = ' ';
+            for (var i = 0; i < data.length; i++) {
+                str += '<option value=' + data[i].pid + '>';
+                str += data[i].pid + ',' + data[i].name;
+                str += '</option>'
+            }
+            $('#rid_select').html(' ');
+            $('#rid_select').html(str);
+            str = ' ';
+        },
+        error: function (err) {
+        }
+    });
+    $("#role_pool_form").submit(function (e) {
+        $.ajax({
+            url: '/api/v1/portal/index/recommend_post/',
+            method: 'post',
+            data: {
+                op: "add",
+                type: $('select[name=type]').val(),
+                rid: $('select[name=pid]').val()
+            },
+            success: function (data) {
+                start();
+                start2();
+                $('#modal-role .close').click();
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    })
+
+</script>

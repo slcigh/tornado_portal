@@ -1,0 +1,187 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">DataTable</h1>
+        <p class="description">数据汇总</p>
+        <button onclick="get_all_info()">导出所有数据</button>
+        <button onclick="get_yesterday()">导出昨日数据</button>
+    </div>
+</div>
+<!-- Basic Setup -->
+<style>
+    .tableBox {
+        margin: 0 auto 30px auto;
+    }
+
+    .topDec {
+        width: 100%;
+        font-size: 16px;
+        line-height: 32px;
+        background-color: #ccc;
+        color: #000;
+        text-align: center;
+    }
+
+    .secDec {
+        width: 100%;
+        font-size: 12px;
+        line-height: 25px;
+        color: #000;
+        text-align: center;
+    }
+
+    .table tr td {
+       text-align: center;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-body row">
+        <div class="tableBox">
+            <div class="topDec">用户数据</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>总用户数</td>
+                    <td>昨日新增用户</td>
+                    <td>上月新增用户</td>
+                    <td>本月新增用户</td>
+                </tr>
+                <tr>
+                    <td id="user_all"></td>
+                    <td id="user_yt"></td>
+                    <td id="user_lm"></td>
+                    <td id="user_cm"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tableBox">
+            <div class="topDec">阵营机构</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>阵营名</td>
+                    <td>总人数</td>
+                    <td>官方人数</td>
+                    <td>非官方人数</td>
+                </tr>
+                <tr>
+                    <td>隐修会</td>
+                    <td id="y_all"></td>
+                    <td id="y_o"></td>
+                    <td id="y_u"></td>
+                </tr>
+                <tr>
+                    <td>凡尘之眼</td>
+                    <td id="f_all"></td>
+                    <td id="f_o"></td>
+                    <td id="f_u"></td>
+                </tr>
+                <tr>
+                    <td>夺灵者</td>
+                    <td id="d_all"></td>
+                    <td id="d_o"></td>
+                    <td id="d_u"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tableBox">
+            <div class="topDec">角色数据</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>角色总数</td>
+                    <td>非官方角色数</td>
+                    <td>昨日新增角色</td>
+                    <td>上月新增角色</td>
+                    <td>本月新增角色</td>
+                </tr>
+                <tr>
+                    <td id="role_all"></td>
+                    <td id="role_user"></td>
+                    <td id="role_yt"></td>
+                    <td id="role_lm"></td>
+                    <td id="role_cm"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tableBox">
+            <div class="topDec">作品数据</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>作品总数</td>
+                    <td>昨日新增作品</td>
+                    <td>今日新增作品</td>
+                    <td>上月新增作品</td>
+                    <td>本月新增作品</td>
+                </tr>
+                <tr>
+                    <td id="post_all"></td>
+                    <td id="post_yt"></td>
+                    <td id="post_td"></td>
+                    <td id="post_lm"></td>
+                    <td id="post_cm"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tableBox">
+            <div class="topDec">任务数据</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>总任务数</td>
+                    <td>正在进行中的任务数</td>
+                </tr>
+                <tr>
+                    <td id="task_all"></td>
+                    <td id="task_now"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tableBox">
+            <div class="topDec">活动数据</div>
+            <table class="table">
+                <tr class="secDec">
+                    <td>总参与用户数</td>
+                </tr>
+                <tr>
+                    <td id="event_all"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function get_all_info() {
+        window.location = "/api/v1/portal/export_xlsx/?get_all=1";
+    }
+    function get_yesterday() {
+        window.location = "/api/v1/portal/export_xlsx/";
+    }
+    $.ajax({
+        url: '/api/v1/portal/info/',
+        type: "get",
+        success: function (data) {
+            $('#task_all').text(data.task_all);
+            $('#task_now').text(data.task_now);
+            $('#event_all').text(data.event_all);
+            $('#post_all').text(data.post_all);
+            $('#post_yt').text(data.post_yt);
+            $('#post_td').text(data.post_td);
+            $('#post_lm').text(data.post_lm);
+            $('#post_cm').text(data.post_cm);
+            $('#role_all').text(data.role_all);
+            $('#role_user').text(data.role_user);
+            $('#role_yt').text(data.role_yt);
+            $('#role_lm').text(data.role_lm);
+            $('#role_cm').text(data.role_cm);
+            $('#y_all').text(data.y_all);
+            $('#y_o').text(data.y_o);
+            $('#y_u').text(data.y_u);
+            $('#d_all').text(data.d_all);
+            $('#d_o').text(data.d_o);
+            $('#d_u').text(data.d_u);
+            $('#f_all').text(data.f_all);
+            $('#f_o').text(data.f_o);
+            $('#f_u').text(data.f_u);
+            $('#user_all').text(data.user_all);
+            $('#user_yt').text(data.user_yt);
+            $('#user_lm').text(data.user_lm);
+            $('#user_cm').text(data.user_cm);
+        }
+    });
+</script>

@@ -1,0 +1,77 @@
+<!-- Modal 6 (Long Modal)-->
+<div class="modal fade" id="modal-role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="row btnRow" id="leftBtn">
+                <form id='event_form' method="POST" enctype="multipart/form-data">
+                    <fieldset>
+
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label ">
+                                标题
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="title" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label ">
+                                简介
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="desc" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label ">
+                                引导语
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="intro" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label ">
+                                cover
+                            </label>
+                            <div class="col-sm-10">
+                                <input name="cover" type="file">
+                            </div>
+                        </div>
+
+
+                        <input type='submit' value='Submit'/>
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#event_form").submit(function (e) {
+        var form = new FormData($('#event_form')[0]);
+        $.ajax({
+            url: '/api/v1/portal/topics/',
+            method: 'post',
+            data: form,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                oneDo.fnDestroy();
+                start();
+                $('#modal-role .close').click();
+            },
+            error: function (err) {
+
+            }
+        });
+    })
+</script>

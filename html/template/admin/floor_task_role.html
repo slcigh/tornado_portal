@@ -1,0 +1,335 @@
+<!-- <div ng-controller="creationBox" class="modal fade" id="modal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id='btn-close'>&times;</button>
+            </div>
+        </div>
+
+    <div class="modal-body" style="background-color: #fff;">
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_title-1" class="control-label">任务名称</label>
+
+                                <input type="text" class="form-control" id="task_title">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_description" class="control-label">任务描述</label>
+                                  <textarea class="substance" style="width: 100%;height: auto;vertical-align: top;" rows="6" cols="20" id="task_description"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-body" id="assignmentSelect">
+                                      <style>
+                                          .first{
+                                              width: 100%;
+                                              display: inline-block;
+                                              margin-right: 3%;
+                                          }
+                                      </style>
+                                      <label for="task_type" class="control-label">任务类型-大</label>
+                                      <select class="oneSelect first" name="first" id="task_type">
+                                          <option value="">请选择</option>
+                                          <option value="0">普通</option>
+                                          <option value="1">阵营</option>
+                                          <option value="2">机构</option>
+                                      </select>
+                                      <label for="task_type_second" class="control-label">任务类型-小</label>
+                                      <select class="twoSelect first" name="two" id='task_type_second'></select>
+                                      <label for="publisher" class="control-label">发布者</label>
+                                      <select class="threeSelect first" name="three" id='publisher'></select>
+                                  </div>
+                            </div>
+                        </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_level_limit" class="control-label">等级限制</label>
+                                <input type="text" class="form-control" id="task_level_limit" value="0">
+                            </div>
+
+                        </div>
+
+                   
+                    </div>
+
+                    <div class="row">
+                         <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_contribute_limit" class="control-label">贡献限制</label>
+                                <input type="text" class="form-control" id="task_contribute_limit" value="0">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="task_target_type" class="control-label">任务玩法</label>
+                                <input type="text" class="form-control" id="task_target_type" value="挂机">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="task_target_param" class="control-label">时限（小时）2 4 8</label>
+                                <input type="text" class="form-control" id="task_target_param" value="2">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label for="task_award_exp" class="control-label"> 经验 </label>
+                                <input type="text" class="form-control" id="task_award_exp" value="0">
+                            </div>
+    
+                        </div>
+            
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label for="task_contribute" class="control-label"> 贡献 </label>
+                                <input type="text" class="form-control" id="task_contribute" value="0">
+                            </div>
+    
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label for="task_stone" class="control-label"> 方石 </label>
+                                <input type="text" class="form-control" id="task_stone" value="0">
+                            </div>
+    
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_quality" class="control-label">任务品质</label>
+                                <select id='task_quality'>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="task_is_only" class="control-label"> 唯一性 </label>
+                                <input type="checkbox" class="headline" id='task_is_only' value="false">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="task_next_task" class="control-label">下一任务ID</label>
+                                <input type="text" class="form-control" id="task_next_task">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info" onclick="upFn()">Save changes</button>
+                    </div>
+    </div>
+
+</div>
+
+
+
+<link rel="stylesheet" type="text/css" href="/thirdParty/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/thirdParty/jcrop/jquery.Jcrop.min.css">
+<link rel="stylesheet" type="text/css" href="/thirdParty/wysiwyg/css/wysiwyg-editor.css">
+<link rel="stylesheet" type="text/css" href="/css/creationWork.css">
+
+<script src="/assets/ng/nav.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/cookie/jquery.cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/json/json2.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
+<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
+
+
+
+<script>
+    $('.oneSelect').change(function(){
+        console.log($(this).val())
+        var selNum = $(this).val();
+        console.log('selNum='+selNum)
+        switch (selNum){
+            case '0':
+                $('.twoSelect').html('<option value="0">0</option>');
+                $('.threeSelect').html('<option value="将界">将界</option>');
+                break;
+            case '1':
+                $('.twoSelect').html(' ');
+                $('.threeSelect').html(' ');    
+                
+                $.ajax({
+                    url: '/api/v1/camps/all_roles/',
+                    type: "get",
+                    success: function(data) {
+                        $('#assignmentSelect').cxSelect({
+                            selects: ['twoSelect','threeSelect'], // 数组，请注意顺序
+                            data: data,
+                            jsonName: 'name',
+                            jsonValue: 'value',
+                            jsonSub: 'sub'
+                        });
+                         // $('#add_role').comboSelect();
+
+                     },
+                    error: function(err) {}
+                });
+
+                break;
+            case '2':
+                $('.twoSelect').html(' ');
+                $('.threeSelect').html(' ');
+
+
+                $.ajax({
+                    url: '/api/v1/organizes/all_roles/',
+                    type: "get",
+                    success: function(data) {
+                        $('#assignmentSelect').cxSelect({
+                            selects: ['twoSelect','threeSelect'], // 数组，请注意顺序
+                            data: data,
+                            jsonName: 'name',
+                            jsonValue: 'value',
+                            jsonSub: 'sub'
+                        });
+                         // $('#add_role').comboSelect();
+
+                     },
+                    error: function(err) {}
+                });
+                
+                break;
+        }
+    });
+
+ // TODO 测试一下
+ function get_award(){
+    var exp_code = 1;
+    var contribute_code = 2;
+    var stone_code = 3;
+
+    var exp_num = $('#task_award_exp').val()
+    var contribute_num =  $('#task_contribute').val()
+    var stone_num = $('#task_stone').val()
+
+
+
+    var award_exp = exp_code + ',' + exp_num + '|';
+    var award_contribute = contribute_code + ',' +  contribute_num + '|';
+    var award_stone = stone_code + ',' + stone_num
+
+    var result = award_exp +  award_contribute +  award_stone
+    return result
+
+ }
+
+  function upFn() {
+    
+    var award = get_award()
+    
+    data = {
+        'title': $('#task_title').val(),
+        'description': $('#task_description').val(),
+        'task_type': $('#task_type').val(),
+        'task_type_second': $('#task_type_second').val(),   
+        'publisher': $('#publisher').val(),
+        'level_limit': $('#task_level_limit').val(),
+        'contribute_limit': $('#task_contribute_limit').val(),
+        'target_type': $('#task_target_type').val(),
+        'target_param': $('#task_target_param').val(),
+        'target_desc': $('#task_target_type').val() + $('#task_target_param').val() + '小时',
+        'award': award,
+        'is_only': $('#task_is_only').val(),
+        'task_quality': $('#task_quality').val(),
+        'next_task': $('#task_next_task').val()
+    };
+
+    url = '/api/v1/tasks/' ;
+
+    $.ajax({
+            url: url,
+            type: "post",
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                // $('#fix-btn-close').click();
+                // $('#dataShow').html(' ');
+                // oneDo.fnDestroy();
+                // tableDate();
+                 window.location.reload()
+            },
+
+            error: function(err) {
+
+                console.log(err.responseText)
+                alert(err.responseText)
+
+            }
+    });
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+ -->

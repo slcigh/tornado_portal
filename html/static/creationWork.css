@@ -1,0 +1,2482 @@
+.pl25 {
+  padding-left: 25px !important;
+}
+.blurImg {
+  -webkit-filter: blur(10px);
+  /* Chrome, Opera */
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+.margin0 {
+  margin: 0 !important;
+}
+.ptop30 {
+  padding-top: 30px;
+}
+.min64 {
+  min-height: 640px;
+}
+html,
+body {
+  min-width: 1024px;
+  overflow-x: auto;
+}
+.bgBox {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.bgF1 {
+  background-color: #f3f4f6;
+}
+.bgFF {
+  background-color: #FFF;
+}
+.rebBox {
+  border: 1px solid red !important;
+  outline-color: red !important;
+}
+.theCoverStyle,
+.singlePageStyle {
+  width: 196px;
+  height: 290px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.theCoverStyle .newIcon,
+.singlePageStyle .newIcon {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  width: 37px;
+  height: 26px;
+  padding-left: 8px;
+  line-height: 26px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  text-align: left;
+  background: url("/img/dynamic/new.png") no-repeat center;
+}
+.theCoverStyle .original,
+.singlePageStyle .original {
+  right: 16px;
+  top: 12px;
+  z-index: 2;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  position: absolute;
+  padding: 5px 10px;
+  border: 1px solid #0387b7;
+  background-color: #82c3dc;
+}
+.theCoverStyle .delBtn,
+.singlePageStyle .delBtn,
+.theCoverStyle .setting,
+.singlePageStyle .setting {
+  right: 0px;
+  top: 0px;
+  z-index: 2;
+  display: none;
+  padding: 18px 20px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+}
+.theCoverStyle .delBtn .fa,
+.singlePageStyle .delBtn .fa,
+.theCoverStyle .setting .fa,
+.singlePageStyle .setting .fa {
+  position: relative;
+}
+.theCoverStyle .delBtn .fa span,
+.singlePageStyle .delBtn .fa span,
+.theCoverStyle .setting .fa span,
+.singlePageStyle .setting .fa span {
+  font-size: 12px;
+  color: #fff;
+  right: 0px;
+  top: 3px;
+  display: none;
+  width: 54px;
+  position: absolute;
+  transition: all ease 0.4s;
+}
+.theCoverStyle .delBtn .fa:hover span,
+.singlePageStyle .delBtn .fa:hover span,
+.theCoverStyle .setting .fa:hover span,
+.singlePageStyle .setting .fa:hover span,
+.theCoverStyle .delBtn .fa:focus span,
+.singlePageStyle .delBtn .fa:focus span,
+.theCoverStyle .setting .fa:focus span,
+.singlePageStyle .setting .fa:focus span,
+.theCoverStyle .delBtn .fa:active span,
+.singlePageStyle .delBtn .fa:active span,
+.theCoverStyle .setting .fa:active span,
+.singlePageStyle .setting .fa:active span {
+  display: block;
+  right: 18px;
+}
+.theCoverStyle .setting,
+.singlePageStyle .setting {
+  right: 8px;
+}
+.theCoverStyle:active .original,
+.theCoverStyle:focus .original,
+.theCoverStyle:hover .original,
+.singlePageStyle:active .original,
+.singlePageStyle:focus .original,
+.singlePageStyle:hover .original {
+  display: none;
+}
+.theCoverStyle:active .delBtn,
+.theCoverStyle:focus .delBtn,
+.theCoverStyle:hover .delBtn,
+.singlePageStyle:active .delBtn,
+.singlePageStyle:focus .delBtn,
+.singlePageStyle:hover .delBtn,
+.theCoverStyle:active .setting,
+.theCoverStyle:focus .setting,
+.theCoverStyle:hover .setting,
+.singlePageStyle:active .setting,
+.singlePageStyle:focus .setting,
+.singlePageStyle:hover .setting {
+  display: inline-block;
+}
+.theCoverStyle:active .bookImgL .imgBLink,
+.theCoverStyle:focus .bookImgL .imgBLink,
+.theCoverStyle:hover .bookImgL .imgBLink,
+.singlePageStyle:active .bookImgL .imgBLink,
+.singlePageStyle:focus .bookImgL .imgBLink,
+.singlePageStyle:hover .bookImgL .imgBLink {
+  display: inline-block;
+}
+.theCoverStyle:active .txtShow .title,
+.theCoverStyle:focus .txtShow .title,
+.theCoverStyle:hover .txtShow .title,
+.singlePageStyle:active .txtShow .title,
+.singlePageStyle:focus .txtShow .title,
+.singlePageStyle:hover .txtShow .title {
+  height: 44px;
+  white-space: normal;
+  text-overflow: clip;
+  text-align: left;
+}
+.theCoverStyle .bookImgL {
+  width: 170px;
+  height: 210px;
+  overflow: hidden;
+  z-index: 2;
+  left: 8px;
+  top: 14px;
+  position: relative;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px 3px #888888;
+}
+.theCoverStyle .bookImgL .imgB {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  left: 0%\9;
+  top: 0%\9;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+}
+.theCoverStyle .bookImgL .imgBLink {
+  width: 170px;
+  height: 210px;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 180px;
+  position: absolute;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.theCoverStyle .bookImgL .imgBLinkNo {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.theCoverStyle .bookImgBg {
+  width: 183px;
+  height: 220px;
+  left: 6px;
+  top: 14px;
+  z-index: 1;
+  position: absolute;
+  background: url("/img/dynamic/bookBg.png") no-repeat;
+  background-size: 100% 100%;
+}
+.theCoverStyle .txtShow {
+  font-size: 12px;
+  color: #888;
+  padding-top: 43px;
+  text-align: center;
+}
+.theCoverStyle .txtShow .left,
+.theCoverStyle .txtShow .line,
+.theCoverStyle .txtShow .right {
+  display: inline-block;
+  vertical-align: middle;
+}
+.theCoverStyle .txtShow .line {
+  width: 2px;
+  height: 20px;
+  margin: 0 14px;
+  position: relative;
+  background-color: #e7e7e7;
+}
+.singlePageStyle {
+  padding: 5px;
+  background-color: #f3f4f6;
+  box-shadow: 0px 0px 8px #cbc9c9;
+}
+.singlePageStyle .bookImgL {
+  width: 100%;
+  height: 226px;
+  overflow: hidden;
+  position: relative;
+}
+.singlePageStyle .bookImgL .imgB {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+.singlePageStyle .bookImgL .imgBLink {
+  width: 100%;
+  height: 226px;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 20px;
+  padding: 50px 20px;
+  display: none;
+  position: absolute;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.singlePageStyle .bookImgL .imgBLinkNo {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.singlePageStyle .txtShow .title {
+  height: 22px;
+  font-size: 12px;
+  color: #444;
+  line-height: 18px;
+  padding-top: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all ease 0.3s;
+}
+.singlePageStyle .txtShow .operating {
+  width: 100%;
+  text-align: left;
+}
+.singlePageStyle .txtShow .operating .newBtn,
+.singlePageStyle .txtShow .operating .zanBtn,
+.singlePageStyle .txtShow .operating .collect {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  padding: 12px 7px;
+  display: inline-block;
+}
+.singlePageStyle .txtShow .operating .newBtn:active,
+.singlePageStyle .txtShow .operating .zanBtn:active,
+.singlePageStyle .txtShow .operating .collect:active,
+.singlePageStyle .txtShow .operating .newBtn:focus,
+.singlePageStyle .txtShow .operating .zanBtn:focus,
+.singlePageStyle .txtShow .operating .collect:focus,
+.singlePageStyle .txtShow .operating .newBtn:hover,
+.singlePageStyle .txtShow .operating .zanBtn:hover,
+.singlePageStyle .txtShow .operating .collect:hover,
+.singlePageStyle .txtShow .operating .active {
+  color: #0387b3;
+}
+.publishBox {
+  width: 100%;
+  margin-top: 20px;
+}
+.publishBox .writeBox {
+  width: 100%;
+  font-size: 12px;
+  color: #444;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #e7e7e7;
+}
+.publishBox .textBtn {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+}
+.publishBox .textBtn .left {
+  width: 80px;
+  float: left;
+  color: #888;
+  top: 6px;
+  position: relative;
+}
+.publishBox .textBtn .left .fa {
+  font-size: 14px;
+}
+.publishBox .textBtn .left span {
+  font-size: 12px;
+}
+.publishBox .textBtn .right {
+  float: right;
+  vertical-align: middle;
+}
+.publishBox .textBtn .right .commentsBtn {
+  padding: 8px 34px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #0387b7;
+}
+.publishBox .textBtn .right .commentsBtn:hover,
+.publishBox .textBtn .right .commentsBtn:active,
+.publishBox .textBtn .right .commentsBtn:focus,
+.publishBox .textBtn .right .active {
+  background-color: #82c3dc;
+}
+.publishBox .textBtn .right .notBtn {
+  pointer-events: none;
+  background-color: #dfdfdf;
+}
+.commentsListBase {
+  width: 100%;
+  margin-top: 20px;
+}
+.commentsListBase .allNumbers {
+  width: 100%;
+  font-size: 16px;
+  color: #1f1f21;
+  text-align: left;
+  padding: 20px 0;
+}
+.commentsListBase .writeBox {
+  width: 100%;
+  font-size: 12px;
+  color: #444;
+  border: 1px solid #dad9da;
+}
+.commentsListBase .textBtn {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+}
+.commentsListBase .textBtn .left {
+  width: 80px;
+  float: left;
+  color: #888;
+  top: 6px;
+  position: relative;
+}
+.commentsListBase .textBtn .left .fa {
+  font-size: 14px;
+}
+.commentsListBase .textBtn .left span {
+  font-size: 12px;
+}
+.commentsListBase .textBtn .right {
+  float: right;
+  vertical-align: middle;
+}
+.commentsListBase .textBtn .right .commentsBtn {
+  padding: 8px 34px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #0387b7;
+}
+.commentsListBase .textBtn .right .commentsBtn:hover,
+.commentsListBase .textBtn .right .commentsBtn:active,
+.commentsListBase .textBtn .right .commentsBtn:focus,
+.commentsListBase .textBtn .right .active {
+  background-color: #82c3dc;
+}
+.commentsListBase .textBtn .right .notBtn {
+  pointer-events: none;
+  background-color: #dfdfdf;
+}
+.commentsListBase .titleCom {
+  padding-bottom: 20px;
+  text-align: left;
+  border-bottom: 1px solid #e7e7e7;
+}
+.commentsListBase .titleCom .fireImg {
+  width: 13px;
+  margin-left: 6px;
+}
+.commentsListBase .titleCom span {
+  font-size: 14px;
+  color: #1f1f21;
+}
+.commentsListBase .showListD {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.commentsListBase .showListD li {
+  width: 100%;
+  list-style: none;
+  padding: 16px 0;
+  min-height: 48px;
+  position: relative;
+}
+.commentsListBase .showListD li .comRol {
+  width: 36px;
+  height: 36px;
+  left: 0;
+  top: 16px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #e9e9ea;
+  position: absolute;
+}
+.commentsListBase .showListD li .comDecBox {
+  width: 100%;
+  padding-left: 48px;
+  position: relative;
+}
+.commentsListBase .showListD li .comDecBox .name {
+  font-size: 12px;
+  color: #444;
+}
+.commentsListBase .showListD li .comDecBox .name:active,
+.commentsListBase .showListD li .comDecBox .name:focus,
+.commentsListBase .showListD li .comDecBox .name:hover {
+  color: #0387b7;
+}
+.commentsListBase .showListD li .comDecBox .floor {
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  color: #aaa;
+  position: absolute;
+}
+.commentsListBase .showListD li .comDecBox .floor .time {
+  display: inline-block;
+  padding-right: 14px;
+}
+.commentsListBase .showListD li .comDecBox .floor span {
+  display: inline-block;
+  cursor: pointer;
+}
+.commentsListBase .showListD li .comDecBox .floor span .fa {
+  padding-right: 3px;
+}
+.commentsListBase .showListD li .comDecBox .floor span:hover,
+.commentsListBase .showListD li .comDecBox .floor span:active,
+.commentsListBase .showListD li .comDecBox .floor span:focus {
+  color: #0387b7;
+}
+.commentsListBase .showListD li .comDecBox .dec {
+  width: 100%;
+  font-size: 14px;
+  color: #444;
+  margin-top: 10px;
+}
+.commentsListBase .showListD .noBotB {
+  border-bottom: 0;
+}
+.commentsListBase .moreCommon {
+  width: 180px;
+  display: block;
+  padding: 6px 0px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e7e7e7;
+  font-size: 12px;
+  color: #aaaaaa;
+  text-decoration: none;
+  margin: 12px auto;
+}
+.commentsListBase .arrLine {
+  padding: 20px 0;
+  text-align: center;
+}
+.commentsListBase .arrLine .dec {
+  font-size: 12px;
+  color: #aaa;
+  padding: 0 6%;
+  display: inline-block;
+}
+.commentsListBase .arrLine span {
+  display: inline-block;
+  width: 32%;
+  height: 1px;
+  top: -6px;
+  position: relative;
+  background-color: #EEE;
+}
+.commentsListBase .moreCommon:hover,
+.commentsListBase .moreCommon:active,
+.commentsListBase .moreCommon:focus {
+  color: #0387b7;
+  border: 1px solid #0387b7;
+}
+.valBox,
+.topShow,
+.allShow {
+  width: 100%;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+}
+.valBox .bookImg {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow-x: hidden;
+}
+.valBox .bookImg .bgImg {
+  height: 100%;
+}
+.valBox .bookImg .privateLetter {
+  padding: 10px 30px;
+  background-color: #0387b7;
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+  z-index: 2;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+.valBox .bookImg .authorsShow {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  bottom: -24px;
+  height: 106px;
+}
+.valBox .bookImg .authorsShow .headerImg {
+  width: 106px;
+  height: 106px;
+  border: 3px solid #99999e;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  position: absolute;
+  left: 40px;
+  top: 0;
+  z-index: 2;
+}
+.valBox .bookImg .authorsShow .headerImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.valBox .bookImg .authorsShow .decBox {
+  width: 100%;
+  padding-left: 160px;
+}
+.valBox .bookImg .authorsShow .decBox .username {
+  display: inline-block;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+.valBox .bookImg .authorsShow .decBox .fsBox {
+  font-size: 12px;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  top: -3px;
+}
+.valBox .bookImg .authorsShow .decBox .fsBox img {
+  width: 22px;
+  display: inline-block;
+}
+.valBox .bookImg .authorsShow .decBox .decInput {
+  width: 620px;
+  border-radius: 3px;
+}
+.valBox .bookImg .authorsShow .decBox .decInput input {
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  border: 0;
+  outline: none;
+  padding: 8px 6px;
+  background-color: inherit;
+}
+.valBox .bookImg .authorsShow .decBox .decSpan {
+  width: 620px;
+  font-size: 12px;
+  color: #fff;
+  padding: 8px 6px;
+}
+.valBox .bookImg .authorsShow .decBox .decInput:hover,
+.valBox .bookImg .authorsShow .decBox .decInput:active,
+.valBox .bookImg .authorsShow .decBox .decInput:focus {
+  border: 1px solid #aaa;
+  background-color: #ccc;
+  background-color: rgba(153, 153, 153, 0.5);
+}
+.valBox .bookImg .authorsShow .decBox .decInput:hover input:focus,
+.valBox .bookImg .authorsShow .decBox .decInput:active input:focus,
+.valBox .bookImg .authorsShow .decBox .decInput:focus input:focus {
+  background-color: #fff;
+  color: #444;
+}
+.valBox .userChooce {
+  width: 100%;
+  background-color: #fff;
+  padding-left: 160px;
+  border: 1px solid #e7e7e7;
+}
+.valBox .userChooce .userCho {
+  display: inline-block;
+  width: 80px;
+  padding: 20px 0;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 50px;
+}
+.valBox .userChooce .userCho .fa {
+  font-size: 16px;
+}
+.valBox .userChooce .userCho span {
+  font-size: 14px;
+  color: #444;
+}
+.valBox .userChooce .userHome .fa {
+  color: #53bd93;
+}
+.valBox .userChooce .userHeart .fa {
+  color: #f86951;
+}
+.valBox .userChooce .userStar .fa {
+  color: #e8a44c;
+}
+.valBox .userChooce .userCho:hover,
+.valBox .userChooce .userCho:active,
+.valBox .userChooce .userCho:focus,
+.valBox .userChooce .active {
+  border-bottom: 2px solid #0387b7;
+}
+.valBox .userChooce .userCho:hover span,
+.valBox .userChooce .userCho:active span,
+.valBox .userChooce .userCho:focus span,
+.valBox .userChooce .active span {
+  color: #0387b7;
+}
+.valBox .userChooce .rightShowDe {
+  float: right;
+}
+.valBox .userChooce .rightShowDe .showDec {
+  padding: 5px 20px;
+  height: 64px;
+  cursor: pointer;
+  display: inline-block;
+}
+.valBox .userChooce .rightShowDe .showDec span {
+  font-size: 12px;
+  display: block;
+  padding: 5px 0;
+  text-align: center;
+}
+.valBox .userChooce .rightShowDe .showDec span .num {
+  font-weight: bold;
+  color: #565656;
+}
+.valBox .userChooce .rightShowDe .showDec span .dec {
+  color: #5a5a5a;
+}
+.valBox .userChooce .rightShowDe .showDec:active .num,
+.valBox .userChooce .rightShowDe .showDec:hover .num,
+.valBox .userChooce .rightShowDe .showDec:focus .num {
+  color: #0387b7;
+}
+.valBox .attributionBox,
+.valBox .attributionBoxD {
+  width: 100%;
+  margin-top: 30px;
+  padding: 30px 40px;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+}
+.valBox .attributionBox .userChooce,
+.valBox .attributionBoxD .userChooce {
+  width: 100%;
+  border: 0;
+  padding-left: 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.valBox .attributionBox .userChooce .userCho,
+.valBox .attributionBoxD .userChooce .userCho {
+  width: auto;
+  margin-right: 0;
+  padding: 0 24px 20px 24px;
+}
+.valBox .attributionBox .topShow,
+.valBox .attributionBoxD .topShow,
+.valBox .attributionBox .allShow,
+.valBox .attributionBoxD .allShow {
+  background-color: inherit;
+  border: 0;
+  border-radius: 0;
+}
+.valBox .attributionBox .topShow,
+.valBox .attributionBoxD .topShow {
+  padding: 0;
+}
+.valBox .attributionBox .topShow .peopleVal,
+.valBox .attributionBoxD .topShow .peopleVal {
+  margin-top: 20px;
+}
+.valBox .attributionBox .opusShow ul,
+.valBox .attributionBoxD .opusShow ul {
+  width: 196px;
+  display: inline-block;
+  margin: 16px;
+}
+.valBox .attributionBox .opusShow ul li,
+.valBox .attributionBoxD .opusShow ul li {
+  margin: 0;
+}
+.valBox .attributionBoxD {
+  background-color: #f3f4f6;
+}
+.valBox .attributionBoxD .concernShow ul li {
+  background-color: #fff;
+}
+.valBox .attributionBoxD .concernShow ul li .rolesHead {
+  border-radius: 50%;
+}
+.valBox .attributionBoxD .concernShow ul li .rolesHead img {
+  border-radius: 50%;
+}
+.valBox .topShow {
+  padding: 20px 21px;
+  border-radius: 3px;
+  position: relative;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f4f6;
+}
+.valBox .topShow .peopleVal {
+  width: 100%;
+  position: relative;
+}
+.valBox .topShow .peopleVal .imgBox {
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.valBox .topShow .peopleVal .imgBox img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #e7e7e7;
+}
+.valBox .topShow .peopleVal .valList {
+  padding-left: 103px;
+}
+.valBox .topShow .peopleVal .valList .peoName .name {
+  display: inline-block;
+  font-size: 14px;
+  color: #444;
+  font-weight: bold;
+}
+.valBox .topShow .peopleVal .valList .peoName .sex {
+  width: 18px;
+  height: 18px;
+  margin: 0 1px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+}
+.valBox .topShow .peopleVal .valList .peoName .sex .fa {
+  font-size: 12px;
+  color: #444;
+  color: #fff;
+}
+.valBox .topShow .peopleVal .valList .peoName .sex1 {
+  background-color: #d07490;
+}
+.valBox .topShow .peopleVal .valList .peoName .sex2 {
+  background-color: #0387b7;
+}
+.valBox .topShow .peopleVal .valList .peoName .grade {
+  display: inline-block;
+  padding: 0px 5px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0387b7;
+  border-radius: 3px;
+}
+.valBox .topShow .peopleVal .valList .peoName .rolesUser {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.valBox .topShow .peopleVal .valList .peoName .rolesUser .name {
+  color: #444;
+}
+.valBox .topShow .peopleVal .valList .peoName .rolesUser .nameD {
+  color: #5a8dcd;
+  cursor: pointer;
+}
+.valBox .topShow .peopleVal .valList .attainment {
+  padding: 6px 0;
+}
+.valBox .topShow .peopleVal .valList .attainment .decN {
+  font-size: 12px;
+  color: #444;
+  display: inline-block;
+}
+.valBox .topShow .peopleVal .valList .attainment .dec {
+  font-size: 12px;
+  color: #444;
+  display: inline-block;
+}
+.valBox .topShow .peopleVal .valList .attainment .dec .now {
+  color: #ef7d0a;
+  font-weight: bold;
+}
+.valBox .topShow .peopleVal .valList .attainment .dec .all {
+  font-weight: bold;
+}
+.valBox .topShow .peopleVal .valList .attainment .seeDecImg {
+  width: 240px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
+}
+.valBox .topShow .peopleVal .valList .attainment .seeDecImg li {
+  list-style: none;
+  float: left;
+  width: 12px;
+  margin-right: 8px;
+}
+.valBox .topShow .peopleVal .valList .attainment .seeDecImg li img {
+  width: 100%;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg {
+  width: 240px;
+  height: 10px;
+  padding: 0;
+  margin: 0 10px;
+  top: 1px;
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  border: 1px solid #c1bebe;
+  background-color: #e7e7e7;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg li {
+  list-style: none;
+  float: left;
+  width: 38px;
+  height: 8px;
+  position: relative;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg li img {
+  width: 12px;
+  left: 13px;
+  top: -9px;
+  position: absolute;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now1 {
+  background-color: #fad6b1;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now2 {
+  background-color: #fcc288;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now3 {
+  background-color: #f9a755;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now4 {
+  background-color: #ef7d0a;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now5 {
+  background-color: #cf6d0a;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .now6 {
+  background-color: #8a5015;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .gray {
+  background-color: #e7e7e7;
+}
+.valBox .topShow .peopleVal .valList .attainment .decImg .gray img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.valBox .topShow .peopleVal .valList .attainment .seeWard {
+  font-size: 12px;
+  color: #5a8dcd;
+}
+.valBox .topShow .peopleVal .valList .like .dec,
+.valBox .topShow .peopleVal .valList .like .decD {
+  max-width: 650px;
+  vertical-align: top;
+  font-size: 12px;
+  color: #444;
+  display: inline-block;
+}
+.valBox .topShow .peopleVal .tohref {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  font-size: 12px;
+  color: #fff;
+  line-height: 80px;
+  text-align: center;
+  background-color: #0387b7;
+  background-color: rgba(3, 135, 183, 0.6);
+}
+.valBox .topShow .peopleVal:hover .tohref {
+  display: inline-block;
+}
+.valBox .topShow .tags {
+  padding: 20px 0 20px 0;
+}
+.valBox .topShow .tags .has,
+.valBox .topShow .tags .add,
+.valBox .topShow .tags .hasSee {
+  position: relative;
+  padding: 2px 10px;
+  display: inline-block;
+  border: 1px solid #b9b9b9;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.valBox .topShow .tags .has span,
+.valBox .topShow .tags .add span,
+.valBox .topShow .tags .hasSee span {
+  font-size: 12px;
+  color: #888;
+  transition: all ease 0.3s;
+}
+.valBox .topShow .tags .has input,
+.valBox .topShow .tags .add input,
+.valBox .topShow .tags .hasSee input {
+  width: 90%;
+  height: 100%;
+  border: 0;
+  outline: none;
+}
+.valBox .topShow .tags .has .fa,
+.valBox .topShow .tags .add .fa,
+.valBox .topShow .tags .hasSee .fa {
+  right: 0;
+  top: 0;
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+  background-color: #0387b7;
+}
+.valBox .topShow .tags .has .fa {
+  display: none;
+}
+.valBox .topShow .tags .has:hover,
+.valBox .topShow .tags .has:active,
+.valBox .topShow .tags .has:focus {
+  border-color: #339dc4;
+}
+.valBox .topShow .tags .has:hover .fa,
+.valBox .topShow .tags .has:active .fa,
+.valBox .topShow .tags .has:focus .fa {
+  display: block;
+}
+.valBox .topShow .tags .has:hover span,
+.valBox .topShow .tags .has:active span,
+.valBox .topShow .tags .has:focus span {
+  padding-right: 24px;
+}
+.valBox .topShow .tags .add {
+  width: 103px;
+}
+.valBox .topShow .tags .add:hover,
+.valBox .topShow .tags .add:active,
+.valBox .topShow .tags .add:focus {
+  border-color: #339dc4;
+}
+.valBox .topShow .moreDec {
+  right: 48px;
+  top: 28px;
+  display: inline-block;
+  position: absolute;
+}
+.valBox .topShow .moreDec .opus,
+.valBox .topShow .moreDec .vermicelli {
+  padding: 0 34px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+.valBox .topShow .moreDec .opus .number,
+.valBox .topShow .moreDec .vermicelli .number {
+  font-size: 14px;
+  color: #565656;
+  font-weight: bold;
+}
+.valBox .topShow .moreDec .opus span,
+.valBox .topShow .moreDec .vermicelli span {
+  font-size: 12px;
+  color: #9a9a9a;
+}
+.valBox .topShow .moreDec .opus:hover .number,
+.valBox .topShow .moreDec .vermicelli:hover .number {
+  color: #82d3dc;
+}
+.valBox .topShow .moreDec .line {
+  width: 0;
+  height: 30px;
+  display: inline-block;
+  border: 1px solid #c6c6c6;
+}
+.valBox .topShow .moreDec .amend {
+  padding: 6px 16px;
+  border: 1px solid #0387b7;
+  border-radius: 3px;
+  display: table-cell;
+  margin-top: 38px;
+  position: relative;
+  left: 37px;
+  top: 38px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.valBox .topShow .moreDec .amend .fa,
+.valBox .topShow .moreDec .amend span {
+  font-size: 12px;
+  color: #0387b7;
+  display: inline-block;
+}
+.valBox .topShow .moreDec .focusOn {
+  padding: 6px 0;
+  width: 110px;
+  background-color: #0387b7;
+  text-align: center;
+  display: block;
+  left: 80px;
+  top: auto;
+  margin: 0 0 36px 0;
+}
+.valBox .topShow .moreDec .focusOn span {
+  color: #FFFFFF;
+}
+.valBox .topShow .moreDec .amend:hover,
+.valBox .topShow .moreDec .amend:active,
+.valBox .topShow .moreDec .amend:focus {
+  background-color: #cde7f1;
+}
+.valBox .topShow .moreDec .focusOn:hover,
+.valBox .topShow .moreDec .focusOn:active,
+.valBox .topShow .moreDec .focusOn:focus {
+  background-color: #82c3dc;
+  border-color: #82c3dc;
+}
+.valBox .allShow {
+  min-height: 656px;
+  position: relative;
+  background-color: #fff;
+  z-index: 3;
+}
+.valBox .allShow .showLeft {
+  width: 100%;
+  min-height: 750px;
+  padding-right: 337px;
+}
+.valBox .allShow .showRight {
+  width: 303px;
+  position: relative;
+  min-height: 516px;
+  right: 0%;
+  top: 50px;
+  position: absolute;
+  padding: 0 24px 24px 24px;
+  border: 2px solid #e2e2e2;
+}
+.valBox .allShow .showRight .cirS {
+  padding: 16px 0;
+  text-align: center;
+}
+.valBox .allShow .showRight .cirS span {
+  width: 10px;
+  height: 10px;
+  margin: 0 50px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #c6c3c3;
+  background-color: #e2e2e3;
+}
+.valBox .allShow .showRight .imgBox {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #e7e7e7;
+}
+.valBox .allShow .showRight .imgBox img {
+  min-width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  left: 0%\9;
+  top: 0%\9;
+  transform: translate(-50%, -50%);
+}
+.valBox .allShow .showRight .decShow {
+  margin: 0;
+  padding: 0;
+}
+.valBox .allShow .showRight .decShow li {
+  width: 100%;
+  list-style: none;
+  padding: 20px 0;
+  display: inline-block;
+  border-bottom: 1px solid #e7e7e7;
+}
+.valBox .allShow .showRight .decShow li .left {
+  width: 90px;
+  float: left;
+}
+.valBox .allShow .showRight .decShow li .right {
+  width: 120px;
+  float: left;
+  margin-left: 32px;
+}
+.valBox .allShow .showRight .decShow li .left .name,
+.valBox .allShow .showRight .decShow li .right .name {
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 7px;
+}
+.valBox .allShow .showRight .decShow li .left a,
+.valBox .allShow .showRight .decShow li .right a {
+  font-size: 12px;
+  color: #444;
+}
+.valBox .allShow .showRight .decShow li .left a:hover,
+.valBox .allShow .showRight .decShow li .right a:hover,
+.valBox .allShow .showRight .decShow li .left a:focus,
+.valBox .allShow .showRight .decShow li .right a:focus,
+.valBox .allShow .showRight .decShow li .left a:active,
+.valBox .allShow .showRight .decShow li .right a:active {
+  color: #7594b3;
+}
+.valBox .allShow .showRight .decShow li .left .name1,
+.valBox .allShow .showRight .decShow li .right .name1 {
+  background-color: #86cced;
+  border: 1px solid #75b8d7;
+}
+.valBox .allShow .showRight .decShow li .left .name2,
+.valBox .allShow .showRight .decShow li .right .name2 {
+  background-color: #f1a9a9;
+  border: 1px solid #c28a8a;
+}
+.valBox .allShow .showRight .decShow li .left .name3,
+.valBox .allShow .showRight .decShow li .right .name3 {
+  background-color: #9fd19a;
+  border: 1px solid #87b283;
+}
+.valBox .allShow .showRight .decShow li .left .name4,
+.valBox .allShow .showRight .decShow li .right .name4 {
+  background-color: #f1c271;
+  border: 1px solid #c49b55;
+}
+.valBox .allShow .showRight .decShow li .left .name5,
+.valBox .allShow .showRight .decShow li .right .name5 {
+  background-color: #e3b7f3;
+  border: 1px solid #c095d0;
+}
+.valBox .allShow .showRight .decShow li .left .name6,
+.valBox .allShow .showRight .decShow li .right .name6 {
+  background-color: #71aaf1;
+  border: 1px solid #466892;
+}
+.valBox .allShow .showRight .decShow .noBot {
+  border-bottom: 0;
+}
+.valBox .allShow .showRight .rightBot {
+  right: -2px;
+  bottom: -2px;
+  position: absolute;
+}
+.valBox .showAllBox {
+  width: 100%;
+  padding-bottom: 10px;
+  position: relative;
+  border-bottom: 2px solid #ececec;
+}
+.valBox .showAllBox .topNav {
+  font-size: 12px;
+  color: #444;
+  position: relative;
+}
+.valBox .showAllBox .topNav .rightDec {
+  font-size: 12px;
+  color: #aaa;
+  right: 0px;
+  top: 10px;
+  position: absolute;
+}
+.valBox .showAllBox .topNav .rightDec span {
+  display: inline-block;
+}
+.valBox .showAllBox .topNav .rightDec a {
+  display: inline-block;
+  color: #5a8dcd;
+}
+.addRolesBox {
+  width: 100%;
+  display: block;
+  padding-bottom: 30px;
+  position: relative;
+}
+.addRolesBox .addBox {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  color: #aaa;
+  border: 1px dashed #aaa;
+  text-decoration: none;
+}
+.addRolesBox .addBox:hover {
+  color: #82c3dc;
+  border: 1px dashed #82c3dc;
+}
+.addRolesBox .fa {
+  font-size: 72px;
+  display: block;
+  margin: 0 auto;
+  line-height: 150px;
+  text-decoration: none;
+  text-align: center;
+}
+.addRolesBox .fa:hover,
+.addRolesBox .fa:active {
+  opacity: 0.8;
+}
+.addRolesBox .topNav {
+  padding: 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 20px;
+}
+.addRolesBox .topNav .title {
+  font-size: 12px;
+  color: #444;
+}
+.addRolesBox span {
+  width: 100%;
+  height: 32px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+  display: inline;
+  position: relative;
+  top: -22px;
+  left: 20px;
+}
+.settingBox {
+  width: 100%;
+  margin-top: 12px;
+  padding: 30px 0px;
+  background-color: #fff;
+}
+.settingBox .infoBox {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0 0 30px 0;
+}
+.settingBox .infoBox .leftDec {
+  width: 60px;
+  font-size: 14px;
+  color: #444;
+  text-align: right;
+  line-height: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.settingBox .rightDec {
+  width: 100%;
+  padding-left: 86px;
+}
+.settingBox .rightDec .inputI,
+.settingBox .rightDec .findBox,
+.settingBox .rightDec .inCodeBox {
+  width: 400px;
+  min-height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #f3f4f6;
+  border-radius: 3px;
+  border: 1px solid #ebebec;
+}
+.settingBox .rightDec .inputI input,
+.settingBox .rightDec .findBox input,
+.settingBox .rightDec .inCodeBox input,
+.settingBox .rightDec .inputI textarea,
+.settingBox .rightDec .findBox textarea,
+.settingBox .rightDec .inCodeBox textarea {
+  width: 100%;
+  height: 40px;
+  font-size: 12px;
+  color: #444;
+  padding-left: 12px;
+  line-height: 40px;
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+.settingBox .rightDec .inputI ::-webkit-input-placeholder,
+.settingBox .rightDec .findBox ::-webkit-input-placeholder,
+.settingBox .rightDec .inCodeBox ::-webkit-input-placeholder {
+  color: #aaa;
+}
+.settingBox .rightDec .inputI textarea,
+.settingBox .rightDec .findBox textarea,
+.settingBox .rightDec .inCodeBox textarea {
+  height: auto;
+  line-height: 18px;
+}
+.settingBox .rightDec .findImgC {
+  width: 100%;
+  position: relative;
+}
+.settingBox .rightDec .findImgC .findBox {
+  width: 190px;
+  display: inline-block;
+}
+.settingBox .rightDec .findImgC .yzImg {
+  width: 100px;
+  height: 40px;
+  margin: 0 8px;
+  display: inline-block;
+  border-radius: 3px;
+  vertical-align: top;
+  border: 1px solid #e7e7e7;
+}
+.settingBox .rightDec .findImgC .yzImg img {
+  width: 100%;
+  height: 100%;
+}
+.settingBox .rightDec .findImgC .changeBtnImg {
+  font-size: 12px;
+  color: #444;
+  vertical-align: top;
+  padding: 12px;
+  display: inline-block;
+}
+.settingBox .rightDec .inCodeBox {
+  position: relative;
+}
+.settingBox .rightDec .inCodeBox input {
+  padding-right: 120px;
+}
+.settingBox .rightDec .inCodeBox .countDownClick,
+.settingBox .rightDec .inCodeBox .countDown {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 120px;
+  height: 38px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 38px;
+  cursor: pointer;
+  text-align: center;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.settingBox .rightDec .inCodeBox .countDownClick {
+  color: #fff;
+  background-color: #0387b7;
+}
+.settingBox .rightDec .inCodeBox .countDown {
+  color: #aeaeae;
+  background-color: #dfdfdf;
+}
+.settingBox .rightDec .errShow {
+  vertical-align: top;
+  display: none;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  color: #ed7d67;
+  margin-left: 30px;
+}
+.settingBox .rightDecErr .inputI,
+.settingBox .rightDecErr .inCodeBox {
+  border: 1px solid #ed7d67;
+}
+.settingBox .rightDecErr .errShow {
+  display: inline-block;
+}
+.settingBox .saveBtn {
+  width: 94px;
+  text-align: center;
+  padding: 10px 0px;
+  margin: 0 0 30px 86px;
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #0387b7;
+}
+.settingImgBox .dec {
+  font-size: 12px;
+  color: #888;
+  width: 100%;
+  padding: 30px 0 20px 0;
+}
+.settingImgBox .imgUploadBtn {
+  width: 120px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #0387b7;
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.settingImgBox .imgUploadBtn #imgUpload,
+.settingImgBox .imgUploadBtn #imgUploadF,
+.settingImgBox .imgUploadBtn #imgUploadC {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  left: 0;
+  top: 0;
+  background-color: #000;
+  position: absolute;
+}
+.settingImgBox .imgUploadBtn:active,
+.settingImgBox .imgUploadBtn:hover,
+.settingImgBox .imgUploadBtn:focus {
+  background-color: #82c3dc;
+}
+.settingImgBox .clippingBox {
+  width: 100%;
+  position: relative;
+}
+.settingImgBox .clippingBox .imgHeadShow {
+  height: auto;
+  display: inline-block;
+}
+.settingImgBox .clippingBox .magnifierImg {
+  top: 0px;
+  position: absolute;
+  display: inline-block;
+}
+.settingImgBox .clippingBox .magnifierImg .magnifierShowBox {
+  overflow: hidden;
+  background-color: #ccc;
+}
+.settingImgBox .clippingBox .magnifierImg span {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+.settingImgBox .cliRolesImg .imgHeadShow {
+  width: 180px;
+}
+.settingImgBox .cliRolesImg .imgHeadShow img {
+  width: 180px;
+}
+.settingImgBox .cliRolesImg .magnifierImg {
+  width: 180px;
+  height: 180px;
+  left: 210px;
+}
+.settingImgBox .cliRolesImg .magnifierImg .magnifierShowBox {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.settingImgBox .btnesBox {
+  width: 100%;
+  margin-top: 12px;
+}
+.settingImgBox .saveImgBtn,
+.settingImgBox .cancelImgBtn {
+  width: 92px;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #888;
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px 20px 20px 0;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #e7e7e7;
+}
+.settingImgBox .imgbtnStyle:active,
+.settingImgBox .imgbtnStyle:hover,
+.settingImgBox .imgbtnStyle:focus,
+.settingImgBox .active {
+  color: #fff;
+  background-color: #0387b7;
+}
+.tagChangeShow {
+  width: 100%;
+}
+.tagChangeShow .changeBtn {
+  width: 100%;
+  border-bottom: 2px solid #ececec;
+}
+.tagChangeShow .changeBtn .dynamicBtn,
+.tagChangeShow .changeBtn .workBtn,
+.tagChangeShow .changeBtn .dataSet,
+.tagChangeShow .changeBtn .headPortraitSet,
+.tagChangeShow .changeBtn .imageSet,
+.tagChangeShow .changeBtn .coverSet {
+  display: inline-block;
+  padding: 8px 36px;
+  font-size: 14px;
+  color: #545454;
+  top: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.tagChangeShow .changeBtn .dynamicBtn:active,
+.tagChangeShow .changeBtn .dynamicBtn:focus,
+.tagChangeShow .changeBtn .dynamicBtn:hover,
+.tagChangeShow .changeBtn .dataSet:active,
+.tagChangeShow .changeBtn .dataSet:focus,
+.tagChangeShow .changeBtn .dataSet:hover,
+.tagChangeShow .changeBtn .headPortraitSet:active,
+.tagChangeShow .changeBtn .headPortraitSet:focus,
+.tagChangeShow .changeBtn .headPortraitSet:hover,
+.tagChangeShow .changeBtn .imageSet:active,
+.tagChangeShow .changeBtn .imageSet:focus,
+.tagChangeShow .changeBtn .imageSet:hover,
+.tagChangeShow .changeBtn .coverSet:active,
+.tagChangeShow .changeBtn .coverSet:focus,
+.tagChangeShow .changeBtn .coverSet:hover,
+.tagChangeShow .changeBtn .workBtn:active,
+.tagChangeShow .changeBtn .workBtn:focus,
+.tagChangeShow .changeBtn .workBtn:hover,
+.tagChangeShow .changeBtn .active {
+  color: #0387b7;
+  border-bottom: 2px solid #0387b7;
+}
+.concernShow ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.concernShow ul li {
+  list-style: none;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f4f6;
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+.concernShow ul li .rolesHead {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 1;
+  border: 1px solid #e9e9e9;
+}
+.concernShow ul li .rolesHead img {
+  width: 100%;
+}
+.concernShow ul li .rolesDec {
+  width: 100%;
+  padding-left: 76px;
+}
+.concernShow ul li .rolesDec a {
+  font-size: 14px;
+  color: #565656;
+  display: block;
+  padding: 5px 0;
+  font-weight: bold;
+  text-decoration: none;
+}
+.concernShow ul li .rolesDec a:hover {
+  color: #0387b7;
+}
+.concernShow ul li .rolesDec .dec {
+  font-size: 12px;
+  color: #9a9a9a;
+  display: inline-block;
+  margin-right: 12px;
+}
+.concernShow ul li .rolesDec .dec span,
+.concernShow ul li .rolesDec .dec a {
+  display: inline-block;
+  color: #5a8dcd;
+  padding-left: 3px;
+  font-weight: 100;
+  vertical-align: middle;
+}
+.redB {
+  border: 2px solid #0387b7;
+}
+.creationArticle,
+.addBooksCover,
+.creationImages {
+  width: 100%;
+  position: relative;
+}
+.creationArticle .infoBox,
+.addBooksCover .infoBox,
+.creationImages .infoBox {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 30px 0;
+  overflow: hidden;
+}
+.creationArticle .infoBox .leftDec,
+.addBooksCover .infoBox .leftDec,
+.creationImages .infoBox .leftDec {
+  width: 60px;
+  font-size: 14px;
+  color: #444;
+  text-align: right;
+  height: 30px;
+  padding-top: 12px;
+  float: left;
+  text-indent: 4px;
+}
+.creationArticle .infoBox .showDec,
+.addBooksCover .infoBox .showDec,
+.creationImages .infoBox .showDec {
+  padding: 0;
+  margin: 0;
+}
+.creationArticle .infoBox .showDec li,
+.addBooksCover .infoBox .showDec li,
+.creationImages .infoBox .showDec li {
+  list-style: none;
+  font-size: 12px;
+  color: #888;
+  line-height: 24px;
+}
+.creationArticle .rightDec,
+.addBooksCover .rightDec,
+.creationImages .rightDec {
+  width: 100%;
+  max-width: 800px;
+  vertical-align: top;
+  margin-left: 30px;
+  display: inline-block;
+  float: left;
+}
+.creationArticle .rightDec .headlineInfo,
+.addBooksCover .rightDec .headlineInfo,
+.creationImages .rightDec .headlineInfo,
+.creationArticle .rightDec .tagInfo,
+.addBooksCover .rightDec .tagInfo,
+.creationImages .rightDec .tagInfo {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+}
+.creationArticle .rightDec .headlineInfo input,
+.addBooksCover .rightDec .headlineInfo input,
+.creationImages .rightDec .headlineInfo input,
+.creationArticle .rightDec .tagInfo input,
+.addBooksCover .rightDec .tagInfo input,
+.creationImages .rightDec .tagInfo input {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: #444;
+  outline-color: #e7e7e7;
+  padding-left: 12px;
+  line-height: 40px;
+  border-radius: 3px;
+  border: 1px solid #ebebec;
+  background-color: #f3f4f6;
+}
+.creationArticle .rightDec .headlineInfo ::-webkit-input-placeholder,
+.addBooksCover .rightDec .headlineInfo ::-webkit-input-placeholder,
+.creationImages .rightDec .headlineInfo ::-webkit-input-placeholder,
+.creationArticle .rightDec .tagInfo ::-webkit-input-placeholder,
+.addBooksCover .rightDec .tagInfo ::-webkit-input-placeholder,
+.creationImages .rightDec .tagInfo ::-webkit-input-placeholder {
+  color: #aaa;
+}
+.creationArticle .rightDec .substanceInfo,
+.addBooksCover .rightDec .substanceInfo,
+.creationImages .rightDec .substanceInfo {
+  width: 100%;
+  position: relative;
+}
+.creationArticle .rightDec .substanceInfo .substance,
+.addBooksCover .rightDec .substanceInfo .substance,
+.creationImages .rightDec .substanceInfo .substance {
+  width: 100%;
+  font-size: 12px;
+  color: #444;
+  text-align: left;
+  padding: 8px;
+  outline-color: #e7e7e7;
+  background-color: #f3f4f6;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ebebec;
+}
+.creationArticle .rightDec .substanceInfo .hasValName,
+.addBooksCover .rightDec .substanceInfo .hasValName,
+.creationImages .rightDec .substanceInfo .hasValName {
+  width: 100%;
+  left: 0;
+  display: none;
+  top: 0px;
+  padding: 4px 20px;
+  text-align: right;
+  font-size: 12px;
+  background-color: #f3f4f6;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: relative;
+  color: #888;
+}
+.creationArticle .rightDec .substanceInfo .hasValName span,
+.addBooksCover .rightDec .substanceInfo .hasValName span,
+.creationImages .rightDec .substanceInfo .hasValName span {
+  color: #0387b7;
+}
+.creationArticle .rightDec .tagShow,
+.addBooksCover .rightDec .tagShow,
+.creationImages .rightDec .tagShow,
+.creationArticle .rightDec .uesdTag,
+.addBooksCover .rightDec .uesdTag,
+.creationImages .rightDec .uesdTag {
+  width: 100%;
+  margin: 6px 0 0 0;
+  padding: 0;
+}
+.creationArticle .rightDec .tagShow li,
+.addBooksCover .rightDec .tagShow li,
+.creationImages .rightDec .tagShow li,
+.creationArticle .rightDec .uesdTag li,
+.addBooksCover .rightDec .uesdTag li,
+.creationImages .rightDec .uesdTag li {
+  list-style: none;
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  padding: 2px 30px 2px 10px;
+}
+.creationArticle .rightDec .tagShow li span,
+.addBooksCover .rightDec .tagShow li span,
+.creationImages .rightDec .tagShow li span,
+.creationArticle .rightDec .uesdTag li span,
+.addBooksCover .rightDec .uesdTag li span,
+.creationImages .rightDec .uesdTag li span {
+  font-size: 12px;
+  color: #888;
+}
+.creationArticle .rightDec .tagShow li .fa,
+.addBooksCover .rightDec .tagShow li .fa,
+.creationImages .rightDec .tagShow li .fa,
+.creationArticle .rightDec .uesdTag li .fa,
+.addBooksCover .rightDec .uesdTag li .fa,
+.creationImages .rightDec .uesdTag li .fa {
+  right: -1px;
+  top: 0%;
+  cursor: pointer;
+  position: absolute;
+  padding: 7px;
+  color: #fff;
+  font-size: 12px;
+  background-color: #82c3dc;
+}
+.creationArticle .rightDec .tagInfo,
+.addBooksCover .rightDec .tagInfo,
+.creationImages .rightDec .tagInfo {
+  width: 100%;
+  margin: 10px 0;
+}
+.creationArticle .rightDec .usedTagD,
+.addBooksCover .rightDec .usedTagD,
+.creationImages .rightDec .usedTagD {
+  position: relative;
+}
+.creationArticle .rightDec .usedTagD .info,
+.addBooksCover .rightDec .usedTagD .info,
+.creationImages .rightDec .usedTagD .info {
+  font-size: 12px;
+  color: #aaa;
+  display: inline-block;
+}
+.creationArticle .rightDec .usedTagD span,
+.addBooksCover .rightDec .usedTagD span,
+.creationImages .rightDec .usedTagD span {
+  width: 30px;
+  height: 1px;
+  top: -3px;
+  position: relative;
+  display: inline-block;
+  background-color: #aaaaaa;
+}
+.creationArticle .rightDec .uesdTag li,
+.addBooksCover .rightDec .uesdTag li,
+.creationImages .rightDec .uesdTag li {
+  padding: 2px 10px;
+  border: 1px solid #0387b7;
+  margin-right: 8px;
+}
+.creationArticle .rightDec .uesdTag li span,
+.addBooksCover .rightDec .uesdTag li span,
+.creationImages .rightDec .uesdTag li span {
+  color: #0387b7;
+}
+.creationArticle .rightDec .uesdTag li:hover,
+.addBooksCover .rightDec .uesdTag li:hover,
+.creationImages .rightDec .uesdTag li:hover,
+.creationArticle .rightDec .uesdTag li:active,
+.addBooksCover .rightDec .uesdTag li:active,
+.creationImages .rightDec .uesdTag li:active,
+.creationArticle .rightDec .uesdTag li:focus,
+.addBooksCover .rightDec .uesdTag li:focus,
+.creationImages .rightDec .uesdTag li:focus {
+  cursor: pointer;
+  background-color: #0387b7;
+}
+.creationArticle .rightDec .uesdTag li:hover span,
+.addBooksCover .rightDec .uesdTag li:hover span,
+.creationImages .rightDec .uesdTag li:hover span,
+.creationArticle .rightDec .uesdTag li:active span,
+.addBooksCover .rightDec .uesdTag li:active span,
+.creationImages .rightDec .uesdTag li:active span,
+.creationArticle .rightDec .uesdTag li:focus span,
+.addBooksCover .rightDec .uesdTag li:focus span,
+.creationImages .rightDec .uesdTag li:focus span {
+  color: #fff;
+}
+.creationArticle .rightDec .bookSelected select,
+.addBooksCover .rightDec .bookSelected select,
+.creationImages .rightDec .bookSelected select {
+  width: 250px;
+  height: 40px;
+  font-size: 12px;
+  color: #444;
+  border-radius: 3px;
+  background-color: #f3f4f6;
+  border: 1px solid #ebebeb;
+  outline: none;
+}
+.creationArticle .rightDec .bookSelected option,
+.addBooksCover .rightDec .bookSelected option,
+.creationImages .rightDec .bookSelected option {
+  width: 250px;
+  height: 40px;
+  font-size: 12px;
+  color: #444;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.creationArticle .rightDec .bookSelected .selectedBox,
+.addBooksCover .rightDec .bookSelected .selectedBox,
+.creationImages .rightDec .bookSelected .selectedBox {
+  margin-right: 20px;
+}
+.creationArticle .rightDec .bookSelected .addBooks,
+.addBooksCover .rightDec .bookSelected .addBooks,
+.creationImages .rightDec .bookSelected .addBooks,
+.creationArticle .rightDec .bookSelected .addImges,
+.addBooksCover .rightDec .bookSelected .addImges,
+.creationImages .rightDec .bookSelected .addImges {
+  padding: 7px 14px;
+  background-color: #0387b7;
+  font-size: 12px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.creationArticle .rightDec .bookSelected .addBooks:hover,
+.addBooksCover .rightDec .bookSelected .addBooks:hover,
+.creationImages .rightDec .bookSelected .addBooks:hover,
+.creationArticle .rightDec .bookSelected .addBooks:active,
+.addBooksCover .rightDec .bookSelected .addBooks:active,
+.creationImages .rightDec .bookSelected .addBooks:active,
+.creationArticle .rightDec .bookSelected .addBooks:focus,
+.addBooksCover .rightDec .bookSelected .addBooks:focus,
+.creationImages .rightDec .bookSelected .addBooks:focus,
+.creationArticle .rightDec .bookSelected .addImges:hover,
+.addBooksCover .rightDec .bookSelected .addImges:hover,
+.creationImages .rightDec .bookSelected .addImges:hover,
+.creationArticle .rightDec .bookSelected .addImges:active,
+.addBooksCover .rightDec .bookSelected .addImges:active,
+.creationImages .rightDec .bookSelected .addImges:active,
+.creationArticle .rightDec .bookSelected .addImges:focus,
+.addBooksCover .rightDec .bookSelected .addImges:focus,
+.creationImages .rightDec .bookSelected .addImges:focus {
+  background-color: #82c3dc;
+}
+.creationArticle .rightDec .announceBox,
+.addBooksCover .rightDec .announceBox,
+.creationImages .rightDec .announceBox {
+  width: 100%;
+}
+.creationArticle .rightDec .announceBox span,
+.addBooksCover .rightDec .announceBox span,
+.creationImages .rightDec .announceBox span,
+.creationArticle .rightDec .announceBox a,
+.addBooksCover .rightDec .announceBox a,
+.creationImages .rightDec .announceBox a {
+  display: inline-block;
+  font-size: 12px;
+  color: #444;
+  font-weight: 100;
+  padding-top: 12px;
+}
+.creationArticle .rightDec .announceBox a,
+.addBooksCover .rightDec .announceBox a,
+.creationImages .rightDec .announceBox a {
+  color: #5a8dcd;
+}
+.creationArticle .rightDec .bookCover,
+.addBooksCover .rightDec .bookCover,
+.creationImages .rightDec .bookCover {
+  width: 100%;
+}
+.creationArticle .rightDec .bookCover .acquiescent,
+.addBooksCover .rightDec .bookCover .acquiescent,
+.creationImages .rightDec .bookCover .acquiescent,
+.creationArticle .rightDec .bookCover .acquiescentSelf,
+.addBooksCover .rightDec .bookCover .acquiescentSelf,
+.creationImages .rightDec .bookCover .acquiescentSelf {
+  vertical-align: top;
+  width: 120px;
+  height: 150px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 12px;
+}
+.creationArticle .rightDec .bookCover .acquiescent img,
+.addBooksCover .rightDec .bookCover .acquiescent img,
+.creationImages .rightDec .bookCover .acquiescent img,
+.creationArticle .rightDec .bookCover .acquiescentSelf img,
+.addBooksCover .rightDec .bookCover .acquiescentSelf img,
+.creationImages .rightDec .bookCover .acquiescentSelf img {
+  width: 100%;
+}
+.creationArticle .rightDec .bookCover .acquiescentSelf,
+.addBooksCover .rightDec .bookCover .acquiescentSelf,
+.creationImages .rightDec .bookCover .acquiescentSelf {
+  padding: 9px 8px;
+  border: 1px solid #c1bebe;
+  background-color: #f3f4f6;
+}
+.creationArticle .rightDec .bookCover .acquiescentSelf .chooseImg,
+.addBooksCover .rightDec .bookCover .acquiescentSelf .chooseImg,
+.creationImages .rightDec .bookCover .acquiescentSelf .chooseImg {
+  height: 130px;
+  position: relative;
+  border: 2px dashed #c1bebe;
+}
+.creationArticle .rightDec .bookCover .acquiescentSelf .chooseImg span,
+.addBooksCover .rightDec .bookCover .acquiescentSelf .chooseImg span,
+.creationImages .rightDec .bookCover .acquiescentSelf .chooseImg span {
+  font-size: 14px;
+  color: #888;
+  display: block;
+  text-align: center;
+  line-height: 130px;
+}
+.creationArticle .rightDec .bookCover .acquiescentSelf .chooseImg .fileStyle,
+.addBooksCover .rightDec .bookCover .acquiescentSelf .chooseImg .fileStyle,
+.creationImages .rightDec .bookCover .acquiescentSelf .chooseImg .fileStyle {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  background-color: #000;
+  position: absolute;
+}
+.creationArticle .rightDec .bookCover .acquiescentSelf:hover,
+.addBooksCover .rightDec .bookCover .acquiescentSelf:hover,
+.creationImages .rightDec .bookCover .acquiescentSelf:hover,
+.creationArticle .rightDec .bookCover .acquiescentSelf:active,
+.addBooksCover .rightDec .bookCover .acquiescentSelf:active,
+.creationImages .rightDec .bookCover .acquiescentSelf:active,
+.creationArticle .rightDec .bookCover .acquiescentSelf:focus,
+.addBooksCover .rightDec .bookCover .acquiescentSelf:focus,
+.creationImages .rightDec .bookCover .acquiescentSelf:focus {
+  background-color: #fafafa;
+}
+.creationArticle .rightDec .coverInterception,
+.addBooksCover .rightDec .coverInterception,
+.creationImages .rightDec .coverInterception {
+  width: 100%;
+  position: relative;
+}
+.creationArticle .rightDec .coverInterception .oldImgBox,
+.addBooksCover .rightDec .coverInterception .oldImgBox,
+.creationImages .rightDec .coverInterception .oldImgBox {
+  width: 150px;
+  position: relative;
+}
+.creationArticle .rightDec .coverInterception .oldImgBox .interceptionOne,
+.addBooksCover .rightDec .coverInterception .oldImgBox .interceptionOne,
+.creationImages .rightDec .coverInterception .oldImgBox .interceptionOne {
+  width: 100%;
+}
+.creationArticle .rightDec .coverInterception .newsImgBox,
+.addBooksCover .rightDec .coverInterception .newsImgBox,
+.creationImages .rightDec .coverInterception .newsImgBox {
+  position: absolute;
+  left: 162px;
+  top: 0;
+  width: 120px;
+  height: 150px;
+}
+.creationArticle .rightDec .coverInterception .newsImgBox .imgBox,
+.addBooksCover .rightDec .coverInterception .newsImgBox .imgBox,
+.creationImages .rightDec .coverInterception .newsImgBox .imgBox {
+  width: 120px;
+  height: 150px;
+  overflow: hidden;
+  background-color: #ccc;
+}
+.creationArticle .rightDec .uploadDEc,
+.addBooksCover .rightDec .uploadDEc,
+.creationImages .rightDec .uploadDEc {
+  width: 100%;
+  position: relative;
+}
+.creationArticle .rightDec .uploadDEc .dec,
+.addBooksCover .rightDec .uploadDEc .dec,
+.creationImages .rightDec .uploadDEc .dec {
+  font-size: 12px;
+  color: #888;
+  padding-top: 6px;
+}
+.creationArticle .rightDec .uploadDEc .upsInputBox,
+.addBooksCover .rightDec .uploadDEc .upsInputBox,
+.creationImages .rightDec .uploadDEc .upsInputBox {
+  padding: 6px 34px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  margin: 20px 0;
+  cursor: pointer;
+  background-color: #0387b7;
+}
+.creationArticle .rightDec .uploadDEc .upsInputBox span,
+.addBooksCover .rightDec .uploadDEc .upsInputBox span,
+.creationImages .rightDec .uploadDEc .upsInputBox span {
+  font-size: 12px;
+  color: #fff;
+}
+.creationArticle .rightDec .uploadDEc .upsInputBox input,
+.addBooksCover .rightDec .uploadDEc .upsInputBox input,
+.creationImages .rightDec .uploadDEc .upsInputBox input {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  background-color: #000;
+  position: absolute;
+}
+.creationArticle .rightDec .uploadDEc .upsInputBox:active,
+.addBooksCover .rightDec .uploadDEc .upsInputBox:active,
+.creationImages .rightDec .uploadDEc .upsInputBox:active,
+.creationArticle .rightDec .uploadDEc .upsInputBox:focus,
+.addBooksCover .rightDec .uploadDEc .upsInputBox:focus,
+.creationImages .rightDec .uploadDEc .upsInputBox:focus,
+.creationArticle .rightDec .uploadDEc .upsInputBox:hover,
+.addBooksCover .rightDec .uploadDEc .upsInputBox:hover,
+.creationImages .rightDec .uploadDEc .upsInputBox:hover {
+  background-color: #82c3dc;
+}
+.creationArticle .rightDec .bookImgCover,
+.addBooksCover .rightDec .bookImgCover,
+.creationImages .rightDec .bookImgCover {
+  overflow: hidden;
+}
+.creationArticle .rightDec .bookImgCover .acquiescent,
+.addBooksCover .rightDec .bookImgCover .acquiescent,
+.creationImages .rightDec .bookImgCover .acquiescent {
+  float: left;
+  width: 140px;
+  height: 206px;
+  padding: 9px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px 20px 10px 0;
+  border: 1px solid #e7e7e7;
+}
+.creationArticle .rightDec .bookImgCover .acquiescent img,
+.addBooksCover .rightDec .bookImgCover .acquiescent img,
+.creationImages .rightDec .bookImgCover .acquiescent img {
+  width: 100%;
+}
+.creationArticle .rightDec .bookImgCover .acquiescent .useForCover,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForCover,
+.creationImages .rightDec .bookImgCover .acquiescent .useForCover,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForDel,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForDel,
+.creationImages .rightDec .bookImgCover .acquiescent .useForDel {
+  padding: 5px 12px;
+  margin-top: 10px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: #f3f4f6;
+  font-size: 12px;
+  color: #888;
+  cursor: pointer;
+}
+.creationArticle .rightDec .bookImgCover .acquiescent .useForCover:hover,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForCover:hover,
+.creationImages .rightDec .bookImgCover .acquiescent .useForCover:hover,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForCover:focus,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForCover:focus,
+.creationImages .rightDec .bookImgCover .acquiescent .useForCover:focus,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForCover:active,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForCover:active,
+.creationImages .rightDec .bookImgCover .acquiescent .useForCover:active,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForDel:hover,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForDel:hover,
+.creationImages .rightDec .bookImgCover .acquiescent .useForDel:hover,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForDel:focus,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForDel:focus,
+.creationImages .rightDec .bookImgCover .acquiescent .useForDel:focus,
+.creationArticle .rightDec .bookImgCover .acquiescent .useForDel:active,
+.addBooksCover .rightDec .bookImgCover .acquiescent .useForDel:active,
+.creationImages .rightDec .bookImgCover .acquiescent .useForDel:active {
+  color: #0387b7;
+}
+.creationArticle .saveBtn,
+.addBooksCover .saveBtn,
+.creationImages .saveBtn {
+  width: 94px;
+  text-align: center;
+  padding: 7px 0px;
+  margin: 0 0 30px 0;
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #0387b7;
+}
+.creationArticle .saveBtn:hover,
+.addBooksCover .saveBtn:hover,
+.creationImages .saveBtn:hover,
+.creationArticle .saveBtn:active,
+.addBooksCover .saveBtn:active,
+.creationImages .saveBtn:active,
+.creationArticle .saveBtn:focus,
+.addBooksCover .saveBtn:focus,
+.creationImages .saveBtn:focus {
+  background-color: #82c3dc;
+}
+.floorBox {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 666;
+  overflow: auto;
+  background: url("../images/blackBg.png") repeat;
+}
+.addBooksCover {
+  width: 90%;
+  min-height: 600px;
+  left: 5%;
+  top: 32px;
+  position: absolute;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  background-color: #fff;
+}
+.addBooksCover h2 {
+  font-size: 16px;
+  color: #0387b7;
+}
+.addBooksCover .infoBox .leftDec {
+  text-align: left;
+}
+.addBooksCover .rightDec {
+  max-width: 680px;
+  margin-left: 12px;
+}
+.addBooksCover .rightDec .headlineInfo,
+.addBooksCover .rightDec .substanceInfo {
+  max-width: 500px;
+}
+.addBooksCover .rightDec .bookCover .acquiescent,
+.addBooksCover .rightDec .bookCover .acquiescentSelf {
+  margin-right: 12px;
+}
+.addBooksCover .rightDec .coverInterception .oldImgBox .interceptionOne {
+  width: 150px;
+}
+.addBooksCover .btnBox {
+  width: 100%;
+  text-align: center;
+}
+.addBooksCover .btnBox .isOkBtn,
+.addBooksCover .btnBox .isErrBtn {
+  padding: 7px 32px;
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.addBooksCover .btnBox .isOkBtn {
+  background-color: #0387b7;
+}
+.addBooksCover .btnBox .isErrBtn {
+  background-color: #888;
+}
+.addBooksCover .btnBox .isOkBtn:active,
+.addBooksCover .btnBox .isOkBtn:focus,
+.addBooksCover .btnBox .isOkBtn:hover {
+  background-color: #82c3dc;
+}
+.addBooksCover .btnBox .isErrBtn:active,
+.addBooksCover .btnBox .isErrBtn:focus,
+.addBooksCover .btnBox .isErrBtn:hover {
+  background-color: #aaa;
+}
+.addBooksCover .closeBtn {
+  position: absolute;
+  right: 18px;
+  top: 28px;
+  font-size: 30px;
+  color: #888;
+  padding: 12px;
+  cursor: pointer;
+}
+.moreUserLink {
+  border: 1px solid #cbc3c3;
+  background-color: #e7e7e7;
+  border-radius: 3px;
+  padding: 0 6px;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.moreUserLink .dec {
+  font-size: 12px;
+  color: #444;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+}
+.moreUserLink .userLinkBox {
+  width: 100%;
+}
+.moreUserLink .userLinkBox .inputI {
+  width: 100%;
+  height: 24px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.moreUserLink .userLinkBox .inputI input {
+  width: 100%;
+  height: 24px;
+  border: 0;
+  padding: 6px 3px;
+  font-size: 12px;
+  color: #444;
+  outline: none;
+  background-color: inherit;
+}
+.moreUserLink .userLinkBox .inputI ::-webkit-input-placeholder {
+  color: #888;
+}
+.moreUserLink .userLinkBox ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 170px;
+  overflow-y: auto;
+}
+.moreUserLink .userLinkBox ul li {
+  width: 100%;
+  list-style: none;
+  position: relative;
+  margin: 8px 0;
+  height: 24px;
+  cursor: pointer;
+  line-height: 24px;
+}
+.moreUserLink .userLinkBox ul li img {
+  width: 24px;
+  height: 24px;
+  left: 8px;
+  top: 0;
+  position: absolute;
+}
+.moreUserLink .userLinkBox ul li span {
+  display: inline-block;
+  width: 100%;
+  padding-left: 40px;
+  font-size: 12px;
+  color: #444;
+}
+.moreUserLink .userLinkBox ul li:active span,
+.moreUserLink .userLinkBox ul li:focus span,
+.moreUserLink .userLinkBox ul li:hover span,
+.moreUserLink .userLinkBox ul .active span {
+  color: #ef7d0a;
+}
+.moreUserLink .wysiwyg-input {
+  position: absolute;
+  left: 0px;
+  top: -32px;
+  visibility: hidden;
+}
+.moreUserLink .wysiwyg-toolbar-icon {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  border: 3px;
+  text-decoration: none;
+  background-color: #0387b7;
+}
+.moreUserLink .wysiwyg-toolbar-icon:hover {
+  background-color: #82c3dc;
+}
+.wysiwyg-toolbar-top {
+  display: none;
+}
+.wysiwyg-toolbar-icon {
+  font-size: 12px;
+  color: #444;
+  cursor: pointer;
+  background-color: #e7e7e7;
+}
+.wysiwyg-editor {
+  height: 300px;
+  overflow-y: auto;
+}
+.wysiwyg-popup {
+  box-shadow: 0 0 5px #e2e2e2;
+  border: 0;
+}
+.wysiwyg-popup.wysiwyg-arrowtop:after {
+  border-bottom: 10px solid #e2e2e2;
+}
+.creationImages .cropDraw,
+.creationArticle .cropDraw,
+.addBooksCover .cropDraw {
+  display: none;
+}
+.clippingBox {
+  width: 100%;
+  position: relative;
+}
+.clippingBox .imgHeadShow {
+  height: auto;
+  display: inline-block;
+}
+.clippingBox .magnifierImg {
+  top: 0px;
+  position: absolute;
+  display: inline-block;
+}
+.clippingBox .magnifierImg .magnifierShowBox {
+  overflow: hidden;
+  background-color: #ccc;
+}
+.clippingBox .magnifierImg span {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+.cropDraw .clippingBox {
+  min-height: 260px;
+}
+.cropDraw .clippingBox .imgHeadShow {
+  width: 120px;
+}
+.cropDraw .clippingBox .imgHeadShow img {
+  width: 120px;
+}
+.cropDraw .clippingBox .magnifierImg {
+  width: 170px;
+  height: 210px;
+  left: 160px;
+}
+.cropDraw .clippingBox .magnifierImg .magnifierShowBox {
+  width: 170px;
+  height: 210px;
+}
+.outBorder {
+  border: 1px solid #e7e7e7;
+  box-shadow: 1px 1px 6px #e7e7e7;
+}
+.wysiwyg-editor {
+  border: 1px solid #ebebec;
+}
+.wysiwyg-arrowto {
+  top: 120px !important;
+}

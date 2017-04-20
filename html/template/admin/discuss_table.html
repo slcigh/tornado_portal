@@ -1,0 +1,99 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">讨论区</h1>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" onclick="addFn1()">
+            <i class="fa-plus-square"></i>
+        </a>
+    </div>
+    <div class="panel-body">
+        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>标题</th>
+                <th>是否是PK</th>
+                <th>发布日期</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>标题</th>
+                <th>是否是PK</th>
+                <th>发布日期</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowO"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var oneDo;
+    function start() {
+        $.ajax({
+            url: '/api/v1/discusses?get_all=1',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data[i].id + '</td>';
+                    str += '<td>' + data[i].title + '</td>';
+                    str += '<td>' + data[i].is_pk + '</td>';
+                    str += '<td>' + data[i].pub_date + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li id="del_discuss' + i + '" onclick="del_discuss(' + data[i].id + ')" value="' + data[i].id + '" >';
+                    str += '删除';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowO').html(' ');
+                $('#dataShowO').html(str);
+                str = ' ';
+                oneDo = $("#example-1").dataTable({
+                    aLengthMenu: [
+                        [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+                    ]
+                });
+            },
+            error: function (err) {
+            }
+        });
+    }
+    start();
+    function addFn1() {
+        jQuery("#modal-role").modal("show", {backdrop: "static"});
+    }
+    function del_discuss(str) {
+        if (confirm("确定删除？")) {
+            $.ajax({
+                url: '/api/v1/discusses',
+                method: 'post',
+                data: {
+                    op: "del",
+                    id: str
+                },
+                success: function (data) {
+                    oneDo.fnDestroy();
+                    start()
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+
+        }
+    }
+</script>

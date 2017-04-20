@@ -1,0 +1,195 @@
+<div class="page-title" style="margin: 0 0 30px 0;">
+    <div class="title-env">
+        <h1 class="title">角色</h1>
+        <p class="description">角色列表展示</p>
+    </div>
+</div>
+<!-- Basic Setup -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="changeBtn active" cN="example-1">官方角色</span>
+        <span class="changeBtn " cN="example-2">用户角色</span>
+        <div class="panel-options">
+            <span id="online_users" class="collapse-icon"></span>
+            <a href="#" data-toggle="panel">
+                <span class="collapse-icon">&ndash;</span>
+                <span class="expand-icon">+</span>
+            </a>
+        </div>
+        <a href="" onclick="addFn1()">
+            <i class="fa-plus-square"></i>
+        </a>
+    </div>
+    <div class="panel-body">
+        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>阵营名</th>
+                <th>机构名</th>
+                <th>身份</th>
+                <th>类型</th>
+                <th>性别</th>
+                <th>拥有者</th>
+                <th>粉丝数</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>阵营名</th>
+                <th>机构名</th>
+                <th>身份</th>
+                <th>类型</th>
+                <th>性别</th>
+                <th>拥有者</th>
+                <th>粉丝数</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowO"></tbody>
+        </table>
+        <table id="example-2" class="table table-striped table-bordered hidden" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>阵营名</th>
+                <th>机构名</th>
+                <th>身份</th>
+                <th>类型</th>
+                <th>性别</th>
+                <th>拥有者</th>
+                <th>粉丝数</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+                <th>id</th>
+                <th>角色名</th>
+                <th>阵营名</th>
+                <th>机构名</th>
+                <th>身份</th>
+                <th>类型</th>
+                <th>性别</th>
+                <th>拥有者</th>
+                <th>粉丝数</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
+            <tbody id="dataShowU"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var oneDo;
+    var oneDot;
+    function start() {
+        $.ajax({
+            url: '/api/v1/portal/role/?type=official',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data.data[i].id + '</td>';
+                    str += '<td>' + data.data[i].name + '</td>';
+                    str += '<td>' + data.data[i].organize + '</td>';
+                    str += '<td>' + data.data[i].camp + '</td>';
+                    str += '<td>' + data.data[i].race_type + '</td>';
+                    str += '<td>' + data.data[i].role_type + '</td>';
+                    str += '<td>' + data.data[i].gender + '</td>';
+                    str += '<td>' + data.data[i].owner + '</td>';
+                    str += '<td>' + data.data[i].fans_count + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li id="" onclick="">';
+                    str += '修改';
+                    str += '</li>';
+                    str += '<li id="" onclick="">';
+                    str += '封禁';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowO').html(' ');
+                $('#dataShowO').html(str);
+                str = ' ';
+                oneDo = $("#example-1").dataTable({
+                    aLengthMenu: [
+                        [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+                    ]
+                });
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function start2() {
+        $.ajax({
+            url: '/api/v1/portal/role/?type=user',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<tr>';
+                    str += '<td>' + data.data[i].id + '</td>';
+                    str += '<td>' + data.data[i].name + '</td>';
+                    str += '<td>' + data.data[i].organize + '</td>';
+                    str += '<td>' + data.data[i].camp + '</td>';
+                    str += '<td>' + data.data[i].race_type + '</td>';
+                    str += '<td>' + data.data[i].role_type + '</td>';
+                    str += '<td>' + data.data[i].gender + '</td>';
+                    str += '<td>' + data.data[i].owner + '</td>';
+                    str += '<td>' + data.data[i].fans_count + '</td>';
+                    str += '<td>';
+                    str += '<ul class="doingBtns">';
+                    str += '<li id="" onclick="">';
+                    str += '修改';
+                    str += '</li>';
+                    str += '<li id="" onclick="">';
+                    str += '封禁';
+                    str += '</li>';
+                    str += '</ul>';
+                    str += '</td>';
+                    str += '</tr>';
+                }
+                $('#dataShowU').html(' ');
+                $('#dataShowU').html(str);
+                str = ' ';
+                oneDot = $("#example-2").dataTable({
+                    aLengthMenu: [
+                        [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+                    ]
+                });
+            },
+            error: function (err) {
+            }
+        });
+    }
+    start();
+    $('.changeBtn').click(function () {
+        var idN = $(this).attr('cN');
+        if (idN == 'example-2') {
+            start2();
+        } else {
+            oneDot.fnDestroy();
+        }
+        $('.changeBtn').removeClass('active');
+        $(this).addClass('active');
+        $('.table').addClass('hidden');
+        $('.dataTables_wrapper').addClass('hidden');
+        $('#' + idN).removeClass('hidden');
+        $('#' + idN + '_wrapper').removeClass('hidden');
+    });
+    function addFn1() {
+        jQuery("#modal-role").modal("show", {backdrop: "static"});
+    }
+</script>

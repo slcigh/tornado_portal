@@ -1,0 +1,52 @@
+<!-- Modal 6 (Long Modal)-->
+<div class="modal fade" id="modal-role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="row btnRow" id="leftBtn">
+                <form id="role_tag_form">
+                    <div class="form-group ">
+                        <label class="col-sm-2 control-label ">
+                            标签名
+                        </label>
+                        <div class="col-sm-10">
+                            <input name="content" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <input type='submit' value='Submit'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#role_tag_form").submit(function (e) {
+        var formdata = new FormData($('#role_tag_form')[0]);
+        $.ajax({
+            url: '/api/v1/portal/role/tag/',
+            method: 'post',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.status) {
+                    oneDo.fnDestroy();
+                    start();
+                    $('#modal-role .close').click();
+                } else {
+                    console.log(data.errors);
+                    $('#modal-role .close').click();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    })
+
+</script>
