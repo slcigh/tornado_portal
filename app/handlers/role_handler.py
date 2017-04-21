@@ -1,9 +1,9 @@
 # coding=utf-8
-from tornado import gen, escape
+from tornado import gen
 from app.model import POOL
 from app.handlers.base import BaseHandler
 from app.utils.oss import upload_image
-from app.utils.other import current_time_string
+from app.utils.other import current_time_string, name_to_pinyin
 
 
 class RoleHandler(BaseHandler):
@@ -62,8 +62,20 @@ class RoleHandler(BaseHandler):
 
     @gen.coroutine
     def post(self, *args, **kwargs):
-        name = upload_image(self.request, 'imagery', 'role/avatar/')
-        current_time = current_time_string()
+        name = self.get_argument('name')
+        pinyin_name = name_to_pinyin(name)
+        introduce = self.get_argument('introduce')
+        gender = self.get_argument('gender')
+        role_type = self.get_argument('role_type')
+        camp_id = self.get_argument('camp_id')
+        organize_id = self.get_argument('organize_id')
+        race_type = self.get_argument('race_type')
+        avatar = upload_image(self.request, 'avatar', prefix='role/avatar/', default='role/avatar/default.jpg')
+        imagery = upload_image(self.request, 'imagery', prefix='role/imagery/', default='role/imagery/default.jpg')
+        back_img = upload_image(self.request, 'back', prefix='role/back/', default='role/back/default.jpg')
+        banner = upload_image(self.request, 'banner', prefix='role/banner/', default='role/banner/default.jpg')
+        full_imagery = upload_image(self.request, 'full_imagery', prefix='role/full_imagery/')
+        create_time = update_time = current_time_string()
         sql_express = """
         INSERT INTO `role_role`
         (`create_time`, `update_time`,`owner_id`,
@@ -72,20 +84,22 @@ class RoleHandler(BaseHandler):
         `full_imagery`,`gender`, `role_type`, `camp_id`,
         `organize_id`, `race_type`, `profession`)
         VALUES
-        ({},{},NULL,
-        'test34',
-        'test34',
-        '这家伙很懒，什么都没有留下!',
-        'sdf.jpg',
-        'role/imagery/default_female.jpg',
-        'role/back/default.jpg',
-        'role/banner/default.jpg',
-        '',
-        1,
-        3,
-        3,
-        58,
-        0,
-        '')
-        """.format(current_time, current_time)
-        self.write({'roles': "ok"})
+        ('{}','{}',NULL,'{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','')""".format(create_time,
+                                                                                                       update_time,
+                                                                                                       name,
+                                                                                                       pinyin_name,
+                                                                                                       introduce,
+                                                                                                       avatar, imagery,
+                                                                                                       back_img, banner,
+                                                                                                       full_imagery,
+                                                                                                       gender,
+                                                                                                       role_type,
+                                                                                                       camp_id,
+                                                                                                       organize_id,
+                                                                                                       race_type)
+        try:
+            yield POOL.execute(sql_express)
+            self.write({'status': 1})
+        except Exception, e:
+            print e
+            self.write({'status': 0})

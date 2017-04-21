@@ -18,7 +18,7 @@ def uuid_filename(filename):
     return '{}.{}'.format(uuid4().hex, ext)
 
 
-def upload_image(request, name, prefix=None):
+def upload_image(request, name, prefix=None, default=None):
     try:
         t_file = request.files[name][0]
         original_filename = t_file['filename']
@@ -29,5 +29,7 @@ def upload_image(request, name, prefix=None):
         bucket = get_bucket()
         bucket.put_object(filename, filedata)
         return filename
-    except:
-        return None
+    except Exception, e:
+        if default is None:
+            default = 'NULL'
+        return default

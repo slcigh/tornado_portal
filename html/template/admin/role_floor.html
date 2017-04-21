@@ -74,7 +74,7 @@
 
 
                             <div class="col-sm-10">
-                                <input name="back_img" type="file">
+                                <input name="back" type="file">
 
 
                             </div>
@@ -95,6 +95,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group ">
+
+                            <label class="col-sm-2 control-label ">
+                                Banner图
+                            </label>
+
+
+                            <div class="col-sm-10">
+                                <input name="full_imagery" type="file">
+
+
+                            </div>
+                        </div>
 
                         <div class="form-group">
 
@@ -191,22 +204,7 @@
 
 
                             <div class="col-sm-10">
-                                <select class="form-control" name="camp">
-
-
-                                    <option value="隐修会">阵营: 隐修会</option>
-
-
-                                    <option value="凡尘之眼">阵营: 凡尘之眼</option>
-
-
-                                    <option value="夺灵者">阵营: 夺灵者</option>
-
-
-                                    <option value="万界图书馆">阵营: 万界图书馆</option>
-
-
-                                    <option value="中立">阵营: 中立</option>
+                                <select id="camp_select" class="form-control" name="camp_id">
 
 
                                 </select>
@@ -224,79 +222,7 @@
 
 
                             <div class="col-sm-10">
-                                <select class="form-control" name="organize">
-
-
-                                    <option value="阴影网络">机构: 阴影网络</option>
-
-
-                                    <option value="至高仲裁委员会">机构: 至高仲裁委员会</option>
-
-
-                                    <option value="饕餮会">机构: 饕餮会</option>
-
-
-                                    <option value="赏花会">机构: 赏花会</option>
-
-
-                                    <option value="圣血会议">机构: 圣血会议</option>
-
-
-                                    <option value="龙鳞堂">机构: 龙鳞堂</option>
-
-
-                                    <option value="唐氏家族">机构: 唐氏家族</option>
-
-
-                                    <option value="海曼商团">机构: 海曼商团</option>
-
-
-                                    <option value="狮鬃佣兵团">机构: 狮鬃佣兵团</option>
-
-
-                                    <option value="收藏室">机构: 收藏室</option>
-
-
-                                    <option value="裂隙追迹者">机构: 裂隙追迹者</option>
-
-
-                                    <option value="塞浦路斯">机构: 塞浦路斯</option>
-
-
-                                    <option value="狂野角斗会">机构: 狂野角斗会</option>
-
-
-                                    <option value="黑血">机构: 黑血</option>
-
-
-                                    <option value="死水雇佣兵">机构: 死水雇佣兵</option>
-
-
-                                    <option value="灵蛇组">机构: 灵蛇组</option>
-
-
-                                    <option value="最强之拳">机构: 最强之拳</option>
-
-
-                                    <option value="泛人类基金会">机构: 泛人类基金会</option>
-
-
-                                    <option value="草原矿业有限公司">机构: 草原矿业有限公司</option>
-
-
-                                    <option value="卡维拉工商联合体">机构: 卡维拉工商联合体</option>
-
-
-                                    <option value="月见会">机构: 月见会</option>
-
-
-                                    <option value="世界遗产保护组织">机构: 世界遗产保护组织</option>
-
-
-                                    <option value="未来略影">机构: 未来略影</option>
-
-
-                                    <option value="谛听">机构: 谛听</option>
+                                <select id="organize_select" class="form-control" name="organize_id">
 
 
                                 </select>
@@ -316,6 +242,46 @@
     </div>
 </div>
 <script>
+    function load_camp() {
+        $.ajax({
+            url: '/api/v1/portal/camp/name_id_list/',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<option value="' + data.data[i].id + '">';
+                    str += data.data[i].name;
+                    str += '</option>';
+                }
+                var camp = $('#camp_select');
+                camp.html(' ');
+                camp.html(str);
+            },
+            error: function (err) {
+            }
+        });
+    }
+    function load_organize() {
+        $.ajax({
+            url: '/api/v1/portal/organize/name_id_list/',
+            type: "get",
+            success: function (data) {
+                var str = ' ';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<option value="' + data.data[i].id + '">';
+                    str += data.data[i].name;
+                    str += '</option>';
+                }
+                var organize = $('#organize_select');
+                organize.html(' ');
+                organize.html(str);
+            },
+            error: function (err) {
+            }
+        });
+    }
+    load_camp();
+    load_organize();
     $("#role_form").submit(function (e) {
         var form = new FormData($('#role_form')[0]);
         $.ajax({
