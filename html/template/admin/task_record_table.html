@@ -41,13 +41,13 @@
             type: "get",
             success: function (data) {
                 var str = ' ';
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].rid + '</td>';
-                    str += '<td>' + data[i].role_name + '</td>';
-                    str += '<td>' + data[i].finished_task_count + '</td>';
-                    str += '<td>' + data[i].role_level + '</td>';
-                    str += '<td>' + data[i].role_exp + '</td>';
+                    str += '<td>' + data.data[i].rid + '</td>';
+                    str += '<td>' + data.data[i].role_name + '</td>';
+                    str += '<td>' + data.data[i].finished_task_count + '</td>';
+                    str += '<td>' + data.data[i].role_level + '</td>';
+                    str += '<td>' + data.data[i].role_exp + '</td>';
                     str += '</tr>';
                 }
                 $('#dataShowO').html(' ');

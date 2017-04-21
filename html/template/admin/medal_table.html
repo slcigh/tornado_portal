@@ -46,15 +46,15 @@
             type: "get",
             success: function (data) {
                 var str = ' ';
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].id + '</td>';
-                    str += '<td>' + data[i].name + '</td>';
-                    str += '<td>' + data[i].desc + '</td>';
-                    str += '<td>' + data[i].image + '</td>';
-                    str += '<td>' + data[i].medal_typet + '</td>';
-                    str += '<td>' + data[i].medal_num + '</td>';
-                    str += '<td>' + data[i].send_num + '</td>';
+                    str += '<td>' + data.data[i].id + '</td>';
+                    str += '<td>' + data.data[i].name + '</td>';
+                    str += '<td>' + data.data[i].desc + '</td>';
+                    str += '<td>' + data.data[i].image + '</td>';
+                    str += '<td>' + data.data[i].medal_typet + '</td>';
+                    str += '<td>' + data.data[i].medal_num + '</td>';
+                    str += '<td>' + data.data[i].send_num + '</td>';
                     str += '</tr>';
                 }
                 $('#dataShowO').html(' ');

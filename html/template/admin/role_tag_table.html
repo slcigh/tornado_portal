@@ -38,13 +38,13 @@
             type: "get",
             success: function (data) {
                 var str = ' ';
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].id + '</td>';
-                    str += '<td>' + data[i].content + '</td>';
+                    str += '<td>' + data.data[i].id + '</td>';
+                    str += '<td>' + data.data[i].content + '</td>';
                     str += '<td>';
                     str += '<ul class="doingBtns">';
-                    str += '<li onclick="del_role(' + data[i].id + ')" value="' + data[i].id + '" >';
+                    str += '<li onclick="del_role(' + data.data[i].id + ')" value="' + data.data[i].id + '" >';
                     str += '删除';
                     str += '</li>';
                     str += '</ul>';

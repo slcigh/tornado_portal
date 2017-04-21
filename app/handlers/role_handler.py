@@ -103,3 +103,40 @@ class RoleHandler(BaseHandler):
         except Exception, e:
             print e
             self.write({'status': 0})
+
+
+class RoleTagHandler(BaseHandler):
+    @gen.coroutine
+    def get(self, *args, **kwargs):
+        sql_express = u"""
+        SELECT
+            `role_rolepopulartags`.`id`,
+            `role_rolepopulartags`.`content`
+        FROM `role_rolepopulartags`"""
+        cur = yield POOL.execute(sql_express)
+        tags = cur.fetchall()
+        self.write({"data": tags})
+
+    @gen.coroutine
+    def post(self, *args, **kwargs):
+        op = self.get_argument('op', '')
+        tid = self.get_argument('rid', '')
+        content = self.get_argument('content', '')
+        if op == 'del' and tid:
+            sql_express = u"""
+            DELETE
+            FROM `role_rolepopulartags`
+            WHERE `role_rolepopulartags`.`id` = {}""".format(tid)
+        elif content:
+            sql_express = u"""
+            INSERT INTO `role_rolepopulartags` (`content`)
+            VALUES ('{}')
+            """.format(content)
+        else:
+            sql_express = u""
+        try:
+            yield POOL.execute(sql_express)
+            self.write({'status': 1})
+        except Exception, e:
+            print e
+            self.write({'status': 0})

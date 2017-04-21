@@ -30,16 +30,15 @@ homes.controller('homeShow', ['$scope', '$location', function ($scope, $location
                 type: 0,
                 name: '任务统计',
                 url: '/template/admin/task_record_table.html',
-                f_url: '/template/admin/medal_floor.html',
                 routeName: '#/task_record'
             },
-            {
-                type: 0,
-                name: '讨论区',
-                url: '/template/admin/discuss_table.html',
-                f_url: '/template/admin/discuss_floor.html',
-                routeName: '#/discuss'
-            },
+            //{
+            //    type: 0,
+            //    name: '讨论区',
+            //    url: '/template/admin/discuss_table.html',
+            //    f_url: '/template/admin/discuss_floor.html',
+            //    routeName: '#/discuss'
+            //},
             {
                 type: 1, name: '角色',
                 child: [
@@ -280,9 +279,9 @@ homes.config(['$routeProvider', function ($routeProvider) {
         .when('/medal', {
             templateUrl: '/template/admin/medal_table.html'
         })
-        .when('/discuss', {
-            templateUrl: '/template/admin/discuss_table.html'
-        })
+        //.when('/discuss', {
+        //    templateUrl: '/template/admin/discuss_table.html'
+        //})
         .when('/role_info', {
             templateUrl: '/template/admin/role_table.html'
         })
