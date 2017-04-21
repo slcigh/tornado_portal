@@ -10,7 +10,7 @@ class RoleHandler(BaseHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
         role_type = self.get_argument("type", None)
-        sql_express = """
+        sql_express = u"""
         SELECT
            `role_role`.`id`,
            `role_role`.`name`,
@@ -76,7 +76,7 @@ class RoleHandler(BaseHandler):
         banner = upload_image(self.request, 'banner', prefix='role/banner/', default='role/banner/default.jpg')
         full_imagery = upload_image(self.request, 'full_imagery', prefix='role/full_imagery/')
         create_time = update_time = current_time_string()
-        sql_express = """
+        sql_express = u"""
         INSERT INTO `role_role`
         (`create_time`, `update_time`,`owner_id`,
         `name`, `pinyin_name`, `introduce`,
