@@ -1,6 +1,6 @@
 # coding=utf-8
 from tornado import gen
-from app.model import POOL
+from app.models import POOL
 from app.handlers.base import BaseHandler
 
 

@@ -27,5 +27,12 @@ class BaseHandler(RequestHandler):
         self.set_header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE")
         super(BaseHandler, self).write(data)
 
+    def prepare_arg_dict(self):
+        arg_dict = self.request.arguments
+        for k, v in arg_dict.items():
+            arg_dict[k] = v[0]
+        return arg_dict
+
+    # must have
     def data_received(self, chunk):
         super(BaseHandler, self).data_received(chunk)

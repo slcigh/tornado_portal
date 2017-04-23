@@ -33,7 +33,6 @@
                 <th>性别</th>
                 <th>拥有者</th>
                 <th>粉丝数</th>
-                <th>Action</th>
             </tr>
             </thead>
 
@@ -48,7 +47,6 @@
                 <th>性别</th>
                 <th>拥有者</th>
                 <th>粉丝数</th>
-                <th>Action</th>
             </tr>
             </tfoot>
             <tbody id="dataShowO"></tbody>
@@ -65,7 +63,6 @@
                 <th>性别</th>
                 <th>拥有者</th>
                 <th>粉丝数</th>
-                <th>Action</th>
             </tr>
             </thead>
 
@@ -80,7 +77,6 @@
                 <th>性别</th>
                 <th>拥有者</th>
                 <th>粉丝数</th>
-                <th>Action</th>
             </tr>
             </tfoot>
             <tbody id="dataShowU"></tbody>
@@ -107,16 +103,6 @@
                     str += '<td>' + data.data[i].gender + '</td>';
                     str += '<td>' + data.data[i].owner + '</td>';
                     str += '<td>' + data.data[i].fans_count + '</td>';
-                    str += '<td>';
-                    str += '<ul class="doingBtns">';
-                    str += '<li id="" onclick="">';
-                    str += '修改';
-                    str += '</li>';
-                    str += '<li id="" onclick="">';
-                    str += '封禁';
-                    str += '</li>';
-                    str += '</ul>';
-                    str += '</td>';
                     str += '</tr>';
                 }
                 $('#dataShowO').html(' ');
@@ -149,16 +135,6 @@
                     str += '<td>' + data.data[i].gender + '</td>';
                     str += '<td>' + data.data[i].owner + '</td>';
                     str += '<td>' + data.data[i].fans_count + '</td>';
-                    str += '<td>';
-                    str += '<ul class="doingBtns">';
-                    str += '<li id="" onclick="">';
-                    str += '修改';
-                    str += '</li>';
-                    str += '<li id="" onclick="">';
-                    str += '封禁';
-                    str += '</li>';
-                    str += '</ul>';
-                    str += '</td>';
                     str += '</tr>';
                 }
                 $('#dataShowU').html(' ');
