@@ -1,6 +1,6 @@
 # coding=utf-8
 from tornado import gen
-from app.models.topic import Topic, TopicToday
+from app.models.topic import Topic, TopicToday, TopicTempManager
 from app.handlers.base import BaseHandler
 from app.utils.other import current_time_string, current_date_string
 from app.utils.oss import upload_image
@@ -47,3 +47,10 @@ class TopicHandler(BaseHandler):
         except Exception, e:
             print e
             self.write({"status": 0})
+
+
+class TopicTempManagerHandler(BaseHandler):
+    @gen.coroutine
+    def get(self, *args, **kwargs):
+        data = yield TopicTempManager.list()
+        self.write({"data": data})

@@ -47,3 +47,42 @@ class TopicToday(BaseModel):
         WHERE `topic_topictoday`.`date` = '{current_date}'""".format(current_date=current_date_string())
         cursor = yield POOL.execute(query)
         raise gen.Return(cursor.fetchall())
+
+
+"""
+        for t in TopicTempManager.objects.all().order_by('topic__pk'):
+            if not t.topic.has_manager:
+                tmp_dict = {'uid': t.user.id, 'tid': t.topic.id, 'topic_name': t.topic.title,
+                            'username': t.user.username,
+                            'user_home_url': '/user_center/#/{}'.format(t.user.userinfo.id)}
+                result_list.append(tmp_dict)
+        return json_response(result_list)
+"""
+
+
+class TopicManager(BaseModel):
+    table = 'topic_topicmanager'
+    field_list = ['create_time', 'update_time', 'user_id', 'topic_id']
+
+
+class TopicTempManager(BaseModel):
+    table = 'topic_topictempmanager'
+    field_list = ['create_time', 'update_time', 'user_id', 'topic_id']
+
+    @classmethod
+    @gen.coroutine
+    def list(cls):
+        query = u"""
+        SELECT
+            `auth_user`.`id` AS `uid`,
+            `auth_user`.`username` AS `username`,
+            `topic_topic`.`id` AS `tid`,
+            `topic_topic`.`title` AS `topic_name`
+        FROM `topic_topictempmanager`
+        INNER JOIN `topic_topic` ON (`topic_topictempmanager`.`topic_id` = `topic_topic`.`id`)
+        LEFT OUTER JOIN `topic_topicmanager` ON (`topic_topic`.`id` = `topic_topicmanager`.`topic_id`)
+        INNER JOIN `auth_user` ON (`topic_topictempmanager`.`user_id` = `auth_user`.`id`)
+        WHERE `topic_topicmanager`.`id` IS NULL
+        ORDER BY `topic_topictempmanager`.`topic_id` DESC"""
+        cursor = yield POOL.execute(query)
+        raise gen.Return(cursor.fetchall())
