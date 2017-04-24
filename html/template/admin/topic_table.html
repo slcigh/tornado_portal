@@ -46,23 +46,23 @@
             type: "get",
             success: function (data) {
                 var str = ' ';
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].rid + '</td>';
-                    str += '<td>' + data[i].title + '</td>';
-                    str += '<td>' + data[i].intro + '</td>';
-                    str += '<td>' + data[i].item_count + '</td>';
-                    str += '<td>' + data[i].is_recommend + '</td>';
-                    str += '<td>' + data[i].is_today + '</td>';
+                    str += '<td>' + data.data[i].rid + '</td>';
+                    str += '<td>' + data.data[i].title + '</td>';
+                    str += '<td>' + data.data[i].intro + '</td>';
+                    str += '<td>' + data.data[i].item_count + '</td>';
+                    str += '<td>' + data.data[i].is_recommend + '</td>';
+                    str += '<td>' + data.data[i].is_today + '</td>';
                     str += '<td>';
                     str += '<ul class="doingBtns">';
-                    str += '<li onclick="today(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="today(' + data.data[i].rid + ')" value="' + data.data[i].rid + '" >';
                     str += '今日';
                     str += '</li>';
-                    str += '<li onclick="rec(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="rec(' + data.data[i].rid + ')" value="' + data.data[i].rid + '" >';
                     str += '推荐';
                     str += '</li>';
-                    str += '<li onclick="rm_rec(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="rm_rec(' + data.data[i].rid + ')" value="' + data.data[i].rid + '" >';
                     str += '取消推荐';
                     str += '</li>';
                     str += '</ul>';
@@ -86,11 +86,11 @@
     function addFn1() {
         jQuery("#modal-role").modal("show", {backdrop: "static"});
     }
-    function today(str, type) {
-        if (confirm("确定？")) {
+    function today(str) {
+        if (confirm("确定设置为今日话题？")) {
             $.ajax({
                 url: '/api/v1/portal/topics/',
-                method: 'post',
+                method: 'put',
                 data: {
                     op: "today",
                     rid: str
@@ -106,11 +106,11 @@
         } else {
         }
     }
-    function rec(str, type) {
-        if (confirm("确定？")) {
+    function rec(str) {
+        if (confirm("确定推荐话题？")) {
             $.ajax({
                 url: '/api/v1/portal/topics/',
-                method: 'post',
+                method: 'put',
                 data: {
                     op: "rec",
                     rid: str
@@ -126,11 +126,11 @@
         } else {
         }
     }
-    function rm_rec(str, type) {
-        if (confirm("确定？")) {
+    function rm_rec(str) {
+        if (confirm("确定取消推荐话题？")) {
             $.ajax({
                 url: '/api/v1/portal/topics/',
-                method: 'post',
+                method: 'put',
                 data: {
                     op: "rmrec",
                     rid: str

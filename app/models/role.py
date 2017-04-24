@@ -62,3 +62,8 @@ class Role(BaseModel):
             query += 'WHERE `role_role`.`role_type` = 3'
         cursor = yield POOL.execute(query)
         raise gen.Return(cursor.fetchall())
+
+
+class RolePopularTags(BaseModel):
+    table = 'role_rolepopulartags'
+    field_list = ['content']

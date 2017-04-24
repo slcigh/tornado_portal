@@ -1,7 +1,6 @@
 # coding=utf-8
 from tornado import gen
-from app.models import POOL
-from app.models.role import Role
+from app.models.role import Role, RolePopularTags
 from app.handlers.base import BaseHandler
 from app.utils.oss import upload_image
 from app.utils.other import current_time_string, name_to_pinyin
@@ -42,13 +41,7 @@ class RoleHandler(BaseHandler):
 class RoleTagHandler(BaseHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
-        sql_express = u"""
-        SELECT
-            `role_rolepopulartags`.`id`,
-            `role_rolepopulartags`.`content`
-        FROM `role_rolepopulartags`"""
-        cur = yield POOL.execute(sql_express)
-        tags = cur.fetchall()
+        tags = yield RolePopularTags.list()
         self.write({"data": tags})
 
     @gen.coroutine
@@ -56,21 +49,9 @@ class RoleTagHandler(BaseHandler):
         op = self.get_argument('op', '')
         tid = self.get_argument('rid', '')
         content = self.get_argument('content', '')
+        arg_dict = {"content": content}
         if op == 'del' and tid:
-            sql_express = u"""
-            DELETE
-            FROM `role_rolepopulartags`
-            WHERE `role_rolepopulartags`.`id` = {}""".format(tid)
+            yield RolePopularTags.delete(tid)
         elif content:
-            sql_express = u"""
-            INSERT INTO `role_rolepopulartags` (`content`)
-            VALUES ('{}')
-            """.format(content)
-        else:
-            sql_express = u""
-        try:
-            yield POOL.execute(sql_express)
-            self.write({'status': 1})
-        except Exception, e:
-            print e
-            self.write({'status': 0})
+            yield RolePopularTags.create(arg_dict)
+        self.write({'status': 1})

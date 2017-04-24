@@ -21,9 +21,9 @@ class UserHandler(BaseHandler):
         SELECT
             `auth_user`.`username`,
             `account_userinfo`.`last_visit`,
-            `account_userinfo`.`mobile`,
-            `auth_user`.`is_active` AS `freeze`,
-            `account_userinfo`.`email`,
+            IF(`account_userinfo`.`mobile` = '','未绑定',`account_userinfo`.`mobile`) as `mobile`,
+            IF(`auth_user`.`is_active`,'正常','冻结') AS `freeze`,
+            IF(`account_userinfo`.`email` = '','未绑定',`account_userinfo`.`email`) as `email`,
             `account_userinfo`.`nickname`,
             `auth_user`.`id`,
             `auth_user`.`date_joined` AS `date_joined`

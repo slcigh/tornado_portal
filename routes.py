@@ -6,4 +6,5 @@ ROUTES = (
     (r'/api/v1/portal/user/', 'app.handlers.user_handler.UserHandler'),
     (r'/api/v1/portal/medal/', 'app.handlers.medal_handler.MedalHandler'),
     (r'/api/v1/portal/role/task/', 'app.handlers.task_handler.TaskRecordHandler'),
+    (r'/api/v1/portal/topics/', 'app.handlers.topic_handler.TopicHandler'),
 )

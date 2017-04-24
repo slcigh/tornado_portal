@@ -30,7 +30,7 @@ class BaseHandler(RequestHandler):
     def prepare_arg_dict(self):
         arg_dict = self.request.arguments
         for k, v in arg_dict.items():
-            arg_dict[k] = v[0]
+            arg_dict[k] = self.decode_argument(v[0])
         return arg_dict
 
     # must have
