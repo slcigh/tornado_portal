@@ -31,7 +31,8 @@ class Topic(BaseModel):
                 WHERE `topic_topicitem`.`topic_id` = `topic_topic`.`id`) as 'item_count'
             FROM `topic_topic`""".format(current_date=current_date_string())
         cursor = yield POOL.execute(query)
-        raise gen.Return(cursor.fetchall())
+        data = cursor.fetchall()
+        raise gen.Return(data)
 
 
 class TopicToday(BaseModel):
@@ -47,17 +48,6 @@ class TopicToday(BaseModel):
         WHERE `topic_topictoday`.`date` = '{current_date}'""".format(current_date=current_date_string())
         cursor = yield POOL.execute(query)
         raise gen.Return(cursor.fetchall())
-
-
-"""
-        for t in TopicTempManager.objects.all().order_by('topic__pk'):
-            if not t.topic.has_manager:
-                tmp_dict = {'uid': t.user.id, 'tid': t.topic.id, 'topic_name': t.topic.title,
-                            'username': t.user.username,
-                            'user_home_url': '/user_center/#/{}'.format(t.user.userinfo.id)}
-                result_list.append(tmp_dict)
-        return json_response(result_list)
-"""
 
 
 class TopicManager(BaseModel):
@@ -85,4 +75,18 @@ class TopicTempManager(BaseModel):
         WHERE `topic_topicmanager`.`id` IS NULL
         ORDER BY `topic_topictempmanager`.`topic_id` DESC"""
         cursor = yield POOL.execute(query)
-        raise gen.Return(cursor.fetchall())
+        data = cursor.fetchall()
+        raise gen.Return(data)
+
+    @classmethod
+    @gen.coroutine
+    def get_value_by_filter(cls, value_dict):
+        query_get_id = u"""
+        SELECT
+            `auth_user`.`id` AS `user_id`,
+        FROM `{table}`
+        INNER JOIN `auth_user` ON (`topic_topictempmanager`.`user_id` = `auth_user`.`id`)
+        WHERE ({values})""".format(table=cls.table, values=cls._parse_update_value_dict(value_dict))
+        cursor = yield POOL.execute(query_get_id)
+        data = cursor.fetchall()
+        raise gen.Return(data)
