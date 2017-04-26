@@ -77,7 +77,7 @@
     $("#event_form").submit(function (e) {
         var form = new FormData($('#event_form')[0]);
         $.ajax({
-            url: '/api/v1/events',
+            url: '/api/v1/portal/event/',
             method: 'post',
             data: form,
             contentType: false,

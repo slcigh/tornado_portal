@@ -30,9 +30,9 @@ class BaseModel(object):
             u"`k1`='v1' AND `k2`='v2'"
         """
         value_dict_str = u""
-        for k, v in value_dict:
+        for k, v in value_dict.items():
             value_dict_str += u"`{k}`='{v}' AND ".format(k=k, v=v)
-        return value_dict_str.rstrip(u'AND')
+        return value_dict_str.rstrip(u'AND ')
 
     @classmethod
     def _parse_update_value_dict(cls, value_dict):
@@ -62,7 +62,6 @@ class BaseModel(object):
         arg_dict = {'table': cls.table,
                     'fields': cls._make_fields(),
                     'values': cls._make_values()}
-        print arg_dict
         query = u"""
         INSERT INTO `{table}` {fields}
         VALUES {values}""".format(**arg_dict).format(**field_dict)
@@ -72,13 +71,13 @@ class BaseModel(object):
 
     @classmethod
     @gen.coroutine
-    def create_if_not_exist(cls, field_dict):
+    def create_if_not_exist(cls, field_dict, key_dict):
         arg_dict = {'table': cls.table,
                     'fields': cls._make_fields(),
                     'x_values': cls._make_values()[1:-1],
-                    'and_values': cls._parse_where_value_dict(field_dict)}
+                    'and_values': cls._parse_where_value_dict(key_dict)}
         query = u"""
-        INSERT INTO INSERT INTO `{table}` {fields}
+        INSERT INTO `{table}` {fields}
         SELECT
              {x_values}
         FROM DUAL
@@ -88,7 +87,6 @@ class BaseModel(object):
           WHERE
             {and_values}
           LIMIT 1)""".format(**arg_dict).format(**field_dict)
-        print query
         cursor = yield POOL.execute(query)
         data = cursor.fetchall()
         raise gen.Return(data)
@@ -109,7 +107,7 @@ class BaseModel(object):
 
     @classmethod
     @gen.coroutine
-    def delete(cls, mid):
+    def delete_by_id(cls, mid):
         arg_dict = {'table': cls.table,
                     'id': mid}
         query = u"""
@@ -138,5 +136,17 @@ class BaseModel(object):
         FROM `{table}`
         WHERE ({values})""".format(table=cls.table, values=cls._parse_update_value_dict(value_dict))
         cursor = yield POOL.execute(query_get_id)
+        data = cursor.fetchall()
+        raise gen.Return(data)
+
+    @classmethod
+    @gen.coroutine
+    def delete_by_query(cls, value_dict):
+        arg_dict = {'table': cls.table,
+                    'values': cls._parse_where_value_dict(value_dict)}
+        query = u"""
+        DELETE FROM `{table}`
+        WHERE {values}""".format(**arg_dict)
+        cursor = yield POOL.execute(query)
         data = cursor.fetchall()
         raise gen.Return(data)

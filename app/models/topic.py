@@ -81,12 +81,17 @@ class TopicTempManager(BaseModel):
     @classmethod
     @gen.coroutine
     def get_value_by_filter(cls, value_dict):
-        query_get_id = u"""
+        query = u"""
         SELECT
-            `auth_user`.`id` AS `user_id`,
+            `auth_user`.`id` AS `user_id`
         FROM `{table}`
         INNER JOIN `auth_user` ON (`topic_topictempmanager`.`user_id` = `auth_user`.`id`)
         WHERE ({values})""".format(table=cls.table, values=cls._parse_update_value_dict(value_dict))
-        cursor = yield POOL.execute(query_get_id)
+        cursor = yield POOL.execute(query)
         data = cursor.fetchall()
         raise gen.Return(data)
+
+
+class TopicFollower(BaseModel):
+    table = 'topic_topic_follower'
+    field_list = ['topic_id', 'user_id']

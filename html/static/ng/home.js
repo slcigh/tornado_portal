@@ -32,13 +32,6 @@ homes.controller('homeShow', ['$scope', '$location', function ($scope, $location
                 url: '/template/admin/task_record_table.html',
                 routeName: '#/task_record'
             },
-            //{
-            //    type: 0,
-            //    name: '讨论区',
-            //    url: '/template/admin/discuss_table.html',
-            //    f_url: '/template/admin/discuss_floor.html',
-            //    routeName: '#/discuss'
-            //},
             {
                 type: 1, name: '角色',
                 child: [
@@ -57,6 +50,16 @@ homes.controller('homeShow', ['$scope', '$location', function ($scope, $location
             {
                 type: 1, name: '活动',
                 child: [
+                    {
+                        name: '活动', url: '/template/admin/event_table.html', f_url: '/template/admin/event_floor.html',
+                        routeName: '#/event'
+                    },
+                    {
+                        name: 'bug活动记录',
+                        url: '/template/admin/event_bug_table.html',
+                        f_url: '/template/admin/announce_floor.html',
+                        routeName: '#/bug_event'
+                    },
                     {
                         name: '人物设定活动',
                         url: '/template/admin/feature_txt_event_table.html',
@@ -131,20 +134,10 @@ homes.controller('homeShow', ['$scope', '$location', function ($scope, $location
 
                     },
                     {
-                        name: '活动', url: '/template/admin/event_table.html', f_url: '/template/admin/event_floor.html',
-                        routeName: '#/event'
-                    },
-                    {
                         name: '公告',
                         url: '/template/admin/announce_table.html',
                         f_url: '/template/admin/announce_floor.html',
                         routeName: '#/announce'
-                    },
-                    {
-                        name: 'bug活动记录',
-                        url: '/template/admin/event_bug_table.html',
-                        f_url: '/template/admin/announce_floor.html',
-                        routeName: '#/bug_event'
                     }
                 ]
             },

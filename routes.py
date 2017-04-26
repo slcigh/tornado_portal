@@ -7,5 +7,7 @@ ROUTES = (
     (r'/api/v1/portal/medal/', 'app.handlers.medal_handler.MedalHandler'),
     (r'/api/v1/portal/role/task/', 'app.handlers.task_handler.TaskRecordHandler'),
     (r'/api/v1/portal/topics/', 'app.handlers.topic_handler.TopicHandler'),
-    (r'/api/v1/portal/applied_manager/', 'app.handlers.topic_handler.TopicTempManagerHandler'),
+    (r'/api/v1/portal/applied_manager/', 'app.handlers.topic_handler.TopicTempManagerPassHandler'),
+    (r'/api/v1/portal/denied_manager/', 'app.handlers.topic_handler.TopicTempManagerDeniedHandler'),
+    (r'/api/v1/portal/event/', 'app.handlers.event_handler.EventHandler'),
 )

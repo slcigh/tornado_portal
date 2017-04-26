@@ -16,7 +16,8 @@
             <tr>
                 <th>标题</th>
                 <th>链接</th>
-                <th>时间</th>
+                <th>开始时间</th>
+                <th>截止时间</th>
                 <th>是否使用</th>
                 <th>ACTION</th>
             </tr>
@@ -25,7 +26,8 @@
             <tr>
                 <th>标题</th>
                 <th>链接</th>
-                <th>时间</th>
+                <th>开始时间</th>
+                <th>截止时间</th>
                 <th>是否使用</th>
                 <th>ACTION</th>
             </tr>
@@ -38,25 +40,26 @@
     var oneDo;
     function start() {
         $.ajax({
-            url: '/api/v1/events?all=1',
+            url: '/api/v1/portal/event/',
             type: "get",
             success: function (data) {
                 var str = ' ';
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].title + '</td>';
-                    str += '<td>' + data[i].url + '</td>';
-                    str += '<td>' + data[i].time_str + '</td>';
-                    str += '<td>' + data[i].use + '</td>';
+                    str += '<td>' + data.data[i].title + '</td>';
+                    str += '<td>' + data.data[i].url + '</td>';
+                    str += '<td>' + data.data[i].start_time + '</td>';
+                    str += '<td>' + data.data[i].expire_time + '</td>';
+                    str += '<td>' + data.data[i].use + '</td>';
                     str += '<td>';
                     str += '<ul class="doingBtns">';
-                    str += '<li onclick="dis_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="dis_role(' + data.data[i].rid + ',' + '1' + ')" value="' + data.data[i].rid + '" >';
                     str += '停用';
                     str += '</li>';
-                    str += '<li onclick="e_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="e_role(' + data.data[i].rid + ',' + '1' + ')" value="' + data.data[i].rid + '" >';
                     str += '启用';
                     str += '</li>';
-                    str += '<li onclick="del_role(' + data[i].rid + ',' + '1' + ')" value="' + data[i].rid + '" >';
+                    str += '<li onclick="del_role(' + data.data[i].rid + ',' + '1' + ')" value="' + data.data[i].rid + '" >';
                     str += '删除';
                     str += '</li>';
                     str += '</ul>';
@@ -83,8 +86,8 @@
     function dis_role(str, type) {
         if (confirm("确定？")) {
             $.ajax({
-                url: '/api/v1/events',
-                method: 'post',
+                url: '/api/v1/portal/event/',
+                method: 'put',
                 data: {
                     op: "disable",
                     rid: str
@@ -108,10 +111,9 @@
     function del_role(str, type) {
         if (confirm("确定？")) {
             $.ajax({
-                url: '/api/v1/events',
-                method: 'post',
+                url: '/api/v1/portal/event/',
+                method: 'delete',
                 data: {
-                    op: "del",
                     rid: str
                 },
                 success: function (data) {
@@ -133,8 +135,8 @@
     function e_role(str, type) {
         if (confirm("确定？")) {
             $.ajax({
-                url: '/api/v1/events',
-                method: 'post',
+                url: '/api/v1/portal/event/',
+                method: 'put',
                 data: {
                     op: "enable",
                     rid: str

@@ -51,7 +51,7 @@ class RoleTagHandler(BaseHandler):
         content = self.get_argument('content', '')
         arg_dict = {"content": content}
         if op == 'del' and tid:
-            yield RolePopularTags.delete(tid)
+            yield RolePopularTags.delete_by_id(tid)
         elif content:
             yield RolePopularTags.create(arg_dict)
         self.write({'status': 1})
