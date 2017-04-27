@@ -55,3 +55,10 @@ class RoleTagHandler(BaseHandler):
         elif content:
             yield RolePopularTags.create(arg_dict)
         self.write({'status': 1})
+
+
+class RoleNameIdListHandler(BaseHandler):
+    @gen.coroutine
+    def get(self, *args, **kwargs):
+        datas = yield Role.name_id_list()
+        self.write({"data": datas})

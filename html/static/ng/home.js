@@ -470,47 +470,6 @@ homes.controller('creationBox', ['$scope', '$location', '$http', function ($scop
                 }
             });
         },
-        createBook: function () {
-            var type_ = $('#creatB').attr('typeIdF');
-            if (type_ == 0) {
-                var data_ = {
-                    "role": $('#add_role').val(),
-                    "title": $scope.fd.floorN,
-                    "introduce": $scope.fd.floorD,
-                    "cover_img": {          //如果自定义封面
-                        "raw_url": $('#creatB').attr('src'), //等待裁切图片的url
-                        "parameter": $('#creatBShowBox').attr('infoimg')      //裁切参数
-                    },
-                    "status": 1
-                }
-            } else {
-                var data_ = {
-                    "role": $('#add_role').val(),
-                    "title": $scope.fd.floorN,
-                    "introduce": $scope.fd.floorD,
-                    "default_cover": $('#creatB').attr('typeId'),  //如果用户选择了官方封面，cover_img和default_cover不能同时上传
-                    "status": 1
-                }
-            }
-            if ($('.addBooksCover h2').html() != '新增书籍') {
-                var url_n = 'draw_sets';
-            } else {
-                var url_n = 'article_sets';
-            }
-            $.ajax({
-                url: httpUrl + 'roles/' + $('#add_role').val() + '/' + url_n + '/',
-                type: "POST",
-                data: JSON.stringify(data_),
-                contentType: "application/json; charset=utf-8",
-                success: function (response) {
-                    $('.closeBtn').click();
-                    $scope.fun.listData();
-                },
-                error: function (err) {
-                    alert(err.responseText)
-                }
-            });
-        },
         createBookFloor: function () {
             var type_ = $('#creatB').attr('typeIdF');
             if (type_ == 0) {
@@ -535,23 +494,23 @@ homes.controller('creationBox', ['$scope', '$location', '$http', function ($scop
                 }
             }
             // if ($('.addBooksCover h2').html() != '新增书籍') {
-            var url_n = 'article_sets';
-            // } else {
-            //     var url_n = 'article_sets';
-            // }
-            $.ajax({
-                url: httpUrl + 'roles/' + $('#add_role').val() + '/' + url_n + '/',
-                type: "POST",
-                data: JSON.stringify(data_),
-                contentType: "application/json; charset=utf-8",
-                success: function (response) {
-                    // 刷新页面
-                    window.location.reload()
-                },
-                error: function (err) {
-                    alert(err.responseText)
-                }
-            });
+            //var url_n = 'article_sets';
+            //// } else {
+            ////     var url_n = 'article_sets';
+            //// }
+            //$.ajax({
+            //    url: httpUrl + 'roles/' + $('#add_role').val() + '/' + url_n + '/',
+            //    type: "POST",
+            //    data: JSON.stringify(data_),
+            //    contentType: "application/json; charset=utf-8",
+            //    success: function (response) {
+            //        // 刷新页面
+            //        window.location.reload()
+            //    },
+            //    error: function (err) {
+            //        alert(err.responseText)
+            //    }
+            //});
         },
 
         createDrawFloor: function () {
@@ -578,60 +537,60 @@ homes.controller('creationBox', ['$scope', '$location', '$http', function ($scop
                 }
             }
             // if ($('.addBooksCover h2').html() != '新增书籍') {
-            var url_n = 'draw_sets';
-            // } else {
-            //     var url_n = 'article_sets';
-            // }
-            $.ajax({
-                url: httpUrl + 'roles/' + $('#add_role').val() + '/' + url_n + '/',
-                type: "POST",
-                data: JSON.stringify(data_),
-                contentType: "application/json; charset=utf-8",
-                success: function (response) {
-                    // 刷新页面
-                    window.location.reload()
-                },
-                error: function (err) {
-                    alert(err.responseText)
-                }
-            });
+            //var url_n = 'draw_sets';
+            //// } else {
+            ////     var url_n = 'article_sets';
+            //// }
+            //$.ajax({
+            //    url: httpUrl + 'roles/' + $('#add_role').val() + '/' + url_n + '/',
+            //    type: "POST",
+            //    data: JSON.stringify(data_),
+            //    contentType: "application/json; charset=utf-8",
+            //    success: function (response) {
+            //        // 刷新页面
+            //        window.location.reload()
+            //    },
+            //    error: function (err) {
+            //        alert(err.responseText)
+            //    }
+            //});
         },
 
         closeBtn: function () {
             $('.closeBtn').click();
         },
-        listData: function () {
-
-            $http({
-                url: httpUrl + 'roles/' + $('#add_role').val() + '/draw_sets/',
-                method: 'get'
-            }).success(function (response) {
-                var da_ = response;
-                var str_ = '<option value="no" label="无">无</option>';
-                for (var i = 0; i < da_.length; i++) {
-                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
-                }
-                $('#imgSelected').html(' ');
-                $('#imgSelected').html(str_);
-                str_ = ' ';
-            }).error(function (data, status, headers, config) {
-            });
-
-            $http({
-                url: httpUrl + 'roles/' + $('#add_role').val() + '/article_sets/',
-                method: 'get'
-            }).success(function (response) {
-                var da_ = response;
-                var str_ = '<option value="no" label="无">无</option>';
-                for (var i = 0; i < da_.length; i++) {
-                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
-                }
-                $('#txtSelected').html(' ');
-                $('#txtSelected').html(str_);
-                str_ = ' ';
-            }).error(function (data, status, headers, config) {
-            });
-        }
+        //listData: function () {
+        //
+        //    //$http({
+        //    //    url: httpUrl + 'roles/' + $('#add_role').val() + '/draw_sets/',
+        //    //    method: 'get'
+        //    //}).success(function (response) {
+        //    //    var da_ = response;
+        //    //    var str_ = '<option value="no" label="无">无</option>';
+        //    //    for (var i = 0; i < da_.length; i++) {
+        //    //        str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
+        //    //    }
+        //    //    $('#imgSelected').html(' ');
+        //    //    $('#imgSelected').html(str_);
+        //    //    str_ = ' ';
+        //    //}).error(function (data, status, headers, config) {
+        //    //});
+        //
+        //    //$http({
+        //    //    url: httpUrl + 'roles/' + $('#add_role').val() + '/article_sets/',
+        //    //    method: 'get'
+        //    //}).success(function (response) {
+        //    //    var da_ = response;
+        //    //    var str_ = '<option value="no" label="无">无</option>';
+        //    //    for (var i = 0; i < da_.length; i++) {
+        //    //        str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
+        //    //    }
+        //    //    $('#txtSelected').html(' ');
+        //    //    $('#txtSelected').html(str_);
+        //    //    str_ = ' ';
+        //    //}).error(function (data, status, headers, config) {
+        //    //});
+        //}
     };
     $scope.flag = {
         show: $location.path() == '/article' ? true : false
@@ -673,12 +632,12 @@ homes.controller('creationBox', ['$scope', '$location', '$http', function ($scop
     });
 
 
-    $scope.fun.listData();
+    //$scope.fun.listData();
     $http({
-        url: httpUrl + 'default_covers/',
+        url: httpUrl + 'portal/post/default_covers/',
         method: 'get'
     }).success(function (response) {
-        $scope.data.faceL = response;
+        $scope.data.faceL = response.data;
         $('.floorBox .bookCover .acquiescent').eq(0).click();
     }).error(function (data, status, headers, config) {
     });

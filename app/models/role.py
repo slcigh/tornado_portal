@@ -63,6 +63,18 @@ class Role(BaseModel):
         cursor = yield POOL.execute(query)
         raise gen.Return(cursor.fetchall())
 
+    @classmethod
+    @gen.coroutine
+    def name_id_list(cls, role_type=None):
+        query = u"""
+        SELECT
+           `role_role`.`id`,
+           `role_role`.`name`
+        FROM `role_role`
+        WHERE NOT (`role_role`.`role_type` = 3)"""
+        cursor = yield POOL.execute(query)
+        raise gen.Return(cursor.fetchall())
+
 
 class RolePopularTags(BaseModel):
     table = 'role_rolepopulartags'

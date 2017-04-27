@@ -1,6 +1,6 @@
 <!-- Modal 6 (Long Modal)-->
 <style>
-    .wysiwyg-popup{
+    .wysiwyg-popup {
         position: absolute !important;
         left: 30px !important;
         top: auto !important;
@@ -11,7 +11,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" style="border: 0;">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id='btn-close'>&times;</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        id='btn-close'>&times;</button>
             </div>
             <div class="row btnRow">
                 <div class="bgBox">
@@ -30,19 +31,23 @@
 
                         <div class="tagChangeShow">
                             <div class="infoBox">
-                                 <div class="leftDec">
-                                       角色
-                                 </div>
-                                 <div class="rightDec" id='element_id'>
-                                       <div class="headlineInfo">
-                                            <select class="role" id="add_role"> </select>
-                                       </div>
-                                 </div>
-                             </div>
+                                <div class="leftDec">
+                                    角色
+                                </div>
+                                <div class="rightDec" id='element_id'>
+                                    <div class="headlineInfo">
+                                        <select class="role" id="add_role"> </select>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="changeBtn">
-                                <div class="dynamicBtn" ng-class="{active: flag.show}" ng-click="flag.show = true;">发布文章</div>
-                                <div class="workBtn" ng-class="{active: !flag.show}" ng-click="flag.show = false;">发布绘画</div>
+                                <div class="dynamicBtn" ng-class="{active: flag.show}" ng-click="flag.show = true;">
+                                    发布文章
+                                </div>
+                                <div class="workBtn" ng-class="{active: !flag.show}" ng-click="flag.show = false;">
+                                    发布绘画
+                                </div>
                             </div>
                         </div>
 
@@ -55,7 +60,8 @@
                                 </div>
                                 <div class="rightDec">
                                     <div class="headlineInfo">
-                                        <input type="text" class="headline" ng-model="fd.txtName" placeholder="请输入30字以内的标题">
+                                        <input type="text" class="headline" ng-model="fd.txtName"
+                                               placeholder="请输入30字以内的标题">
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +98,8 @@
 
                                     </ul>
                                     <div class="tagInfo tagInfo1">
-                                        <input type="text" class="tagWrite" placeholder="请选择或自定义最多5个标签（最长4个字符），按空格键生成标签">
+                                        <input type="text" class="tagWrite"
+                                               placeholder="请选择或自定义最多5个标签（最长4个字符），按空格键生成标签">
                                     </div>
                                     <div class="usedTagD hidden">
                                         <span></span>
@@ -116,13 +123,15 @@
                                 <div class="rightDec">
                                     <div class="bookCover">
                                         <div class="acquiescent" ng-class="{redB:$first}" ng-repeat="i in data.faceL">
-                                            <img srcId="{{i.id}}" ng-src="{{i.image}}" alt="">
+                                            <img srcId="{{i.id}}" ng-src="http://static.jiangjie.com/{{i.image}}"
+                                                 alt="">
                                         </div>
                                         <div class="acquiescentSelf">
                                             <div class="chooseImg">
                                                 <span>自定义封面</span>
                                                 <form id="coverArticleFF">
-                                                    <input accept="image.jpg,image.png" name="image" id="coverArticle" class="fileStyle"
+                                                    <input accept="image.jpg,image.png" name="image" id="coverArticle"
+                                                           class="fileStyle"
                                                            type="file">
                                                     <input type="hidden" name="location" value="role/post/">
                                                 </form>
@@ -138,18 +147,19 @@
                                 <div class="rightDec">
                                     <div class="coverInterception clippingBox  clippingBox3 hidden" id="cover_3">
                                         <div class="imgHeadShow">
-                                            <img id="creatA" typeid="1" typeidf="1" src="/img/dynamic/bookImg.jpg" alt="">
+                                            <img id="creatA" typeid="1" typeidf="1" src="/static/images/bookImg.jpg"
+                                                 alt="">
                                         </div>
                                         <div class="magnifierImg magnifierImgB1" id="creatABox">
                                             <div class="magnifierShowBox" id="creatABox1">
-                                                <img src="/img/dynamic/bookImg.jpg" alt="">
+                                                <img src="/static/images/bookImg.jpg" alt="">
                                             </div>
                                             <span>封面预览</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <div class="saveBtn" ng-click="fun.bookUpTo()">
                                 发布
                             </div>
@@ -168,14 +178,16 @@
                                         <div class="upsInputBox">
                                             <span ng-bind="data.imgDec"></span>
                                             <form id="locationForm">
-                                                <input accept="image.jpg,image.png" name="image" id="upsInput" multiple class=""
+                                                <input accept="image.jpg,image.png" name="image" id="upsInput" multiple
+                                                       class=""
                                                        type="file">
                                                 <input type="hidden" name="location" value="role/post/">
                                             </form>
                                         </div>
                                     </div>
                                     <div class="bookImgCover">
-                                        <div class="acquiescent" ng-repeat="(key, value) in data.img  track by $index | limitTo:10 ">
+                                        <div class="acquiescent"
+                                             ng-repeat="(key, value) in data.img  track by $index | limitTo:10 ">
                                             <img ng-src="{{value}}" alt="">
                                             <div class="useForCover">设为封面</div>
                                             <div class="useForDel">
@@ -192,11 +204,11 @@
                                 <div class="rightDec">
                                     <div class="coverInterception clippingBox clippingBox1 hidden" id="cover_1">
                                         <div class="imgHeadShow">
-                                            <img id="imgHeadShow" src="/img/dynamic/bookImg.jpg" alt="">
+                                            <img id="imgHeadShow" src="/static/images/bookImg.jpg" alt="">
                                         </div>
                                         <div class="magnifierImg magnifierImgB1" id="imgHeadShowBox">
                                             <div class="magnifierShowBox" id="magnifierShowB1">
-                                                <img src="/img/dynamic/bookImg.jpg" alt="">
+                                                <img src="/static/images/bookImg.jpg" alt="">
                                             </div>
                                             <span>封面预览</span>
                                         </div>
@@ -209,7 +221,8 @@
                                 </div>
                                 <div class="rightDec">
                                     <div class="headlineInfo">
-                                        <input type="text" class="headline" ng-model="fd.imgName" placeholder="请输入30字以内的标题">
+                                        <input type="text" class="headline" ng-model="fd.imgName"
+                                               placeholder="请输入30字以内的标题">
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +246,8 @@
 
                                     </ul>
                                     <div class="tagInfo tagInfo2">
-                                        <input type="text" class="tagWrite" placeholder="请选择或自定义最多5个标签（最长4个字符），按空格键生成标签">
+                                        <input type="text" class="tagWrite"
+                                               placeholder="请选择或自定义最多5个标签（最长4个字符），按空格键生成标签">
                                     </div>
                                     <div class="usedTagD hidden">
                                         <span></span>
@@ -244,33 +258,32 @@
                                     </ul>
                                 </div>
                             </div>
-                            
+
                             <div class="saveBtn" ng-click="fun.imgUpload()">
                                 发布
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
 
-<link rel="stylesheet" type="text/css" href="/thirdParty/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/thirdParty/jcrop/jquery.Jcrop.min.css">
-<link rel="stylesheet" type="text/css" href="/thirdParty/wysiwyg/css/wysiwyg-editor.css">
-<link rel="stylesheet" type="text/css" href="/css/creationWork.css">
+<link rel="stylesheet" type="text/css" href="/static/third/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/third/jcrop/jquery.Jcrop.min.css">
+<link rel="stylesheet" type="text/css" href="/static/third/wysiwyg/css/wysiwyg-editor.css">
+<link rel="stylesheet" type="text/css" href="/static/css/creationWork.css">
 
-<script src="/assets/ng/nav.js" type="/text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/cookie/jquery.cookie.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/json/json2.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/cookie/jquery.cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/json/json2.js" charset="utf-8"></script>
 
 <script>
-    $.cookie('role_id',12);
+    $.cookie('role_id', 12);
     // Create variables (in this scope) to hold the API and image size
     $('.closeBtn').click(function () {
         $('.floorBox').addClass('hidden');
@@ -290,38 +303,38 @@
     });
 
 
-$(document).on('change','#add_role',function(){
+    //$(document).on('change','#add_role',function(){
+    //
+    //        $.ajax({
+    //            url: httpUrl + 'roles/' + $('#add_role').val() + '/draw_sets/',
+    //            type: 'get',
+    //            success: function(response){
+    //                 var da_ = response;
+    //                var str_ = '<option value="no" label="无">无</option>';
+    //                for (var i = 0; i < da_.length; i++) {
+    //                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
+    //                }
+    //                $('#imgSelected').html(' ');
+    //                $('#imgSelected').html(str_);
+    //                str_ = ' ';
+    //            }
+    //        });
+    //        $.ajax({
+    //            url: httpUrl + 'roles/' + $('#add_role').val() + '/article_sets/',
+    //            type: 'get',
+    //            success: function(response){
+    //                 var da_ = response;
+    //                var str_ = '<option value="no" label="无">无</option>';
+    //                for (var i = 0; i < da_.length; i++) {
+    //                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
+    //                }
+    //                $('#txtSelected').html(' ');
+    //                $('#txtSelected').html(str_);
+    //                str_ = ' ';
+    //            }
+    //        });
+    //});
 
-        $.ajax({
-            url: httpUrl + 'roles/' + $('#add_role').val() + '/draw_sets/',
-            type: 'get',
-            success: function(response){
-                 var da_ = response;
-                var str_ = '<option value="no" label="无">无</option>';
-                for (var i = 0; i < da_.length; i++) {
-                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
-                }
-                $('#imgSelected').html(' ');
-                $('#imgSelected').html(str_);
-                str_ = ' ';
-            }
-        });
-        $.ajax({
-            url: httpUrl + 'roles/' + $('#add_role').val() + '/article_sets/',
-            type: 'get',
-            success: function(response){
-                 var da_ = response;
-                var str_ = '<option value="no" label="无">无</option>';
-                for (var i = 0; i < da_.length; i++) {
-                    str_ += '<option value="' + da_[i].title + '"  optionId="' + da_[i].id + '" label="">' + da_[i].title + '</option>';
-                }
-                $('#txtSelected').html(' ');
-                $('#txtSelected').html(str_);
-                str_ = ' ';
-            }
-        });
-});
- 
 
     var $editor = $('#textInfo').wysiwyg({
         classes: 'some-more-classes',

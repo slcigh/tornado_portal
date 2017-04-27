@@ -155,23 +155,21 @@
 </div>
 
 
-<link rel="stylesheet" type="text/css" href="/thirdParty/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/thirdParty/jcrop/jquery.Jcrop.min.css">
-<link rel="stylesheet" type="text/css" href="/thirdParty/wysiwyg/css/wysiwyg-editor.css">
-<link rel="stylesheet" type="text/css" href="/css/creationWork.css">
+<link rel="stylesheet" type="text/css" href="/static/third/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/third/jcrop/jquery.Jcrop.min.css">
+<link rel="stylesheet" type="text/css" href="/static/third/wysiwyg/css/wysiwyg-editor.css">
+<link rel="stylesheet" type="text/css" href="/static/css/creationWork.css">
 
-<script src="/assets/ng/nav.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/cookie/jquery.cookie.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/json/json2.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
-<script type="text/javascript" src="/thirdParty/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/jcrop/jquery.Jcrop.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/cookie/jquery.cookie.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/wysiwyg/js/wysiwyg.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/wysiwyg/js/wysiwyg-editor.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/third/json/json2.js" charset="utf-8"></script>
 
-
-<link rel="stylesheet" href="/css/combo.select.css">
+<link rel="stylesheet" href="/static/css/combo.select.css">
 
 
-<script src="/thirdParty/jquery/jquery.cxselect.min.js"></script>
+<script src="/static/third/jquery/jquery.cxselect.min.js"></script>
 
 
 <script>
@@ -181,7 +179,7 @@
         var fn = fn || function () {
                 };
         $.ajax({
-            url: '/api/v1/roles/products/',
+            url: '/api/v1/portal/post/',
             type: "get",
             success: function (data) {
                 dataBase = data;
@@ -189,33 +187,34 @@
                 // var dec_ = data.dec;
                 // console.log('data====')
                 // console.log(data.length)
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
-                    str += '<td>' + data[i].id + '</td>';
-                    str += '<td>' + data[i].role.name + '</td>';
-                    str += '<td>' + data[i].title + '</td>';
-                    str += '<td>' + data[i].extra_info.hits_count + '</td>';
-                    if (data[i].post_type == 1) {
+                    str += '<td>' + data.data[i].id + '</td>';
+                    str += '<td>' + data.data[i].role_name + '</td>';
+                    str += '<td>' + data.data[i].title + '</td>';
+                    str += '<td>' + data.data[i].hits_count + '</td>';
+                    if (data.data[i].post_type == 1) {
                         str += '<td>绘画</td>';
                     } else {
                         str += '<td>文章</td>';
                     }
                     str += '<td>' + data[i].create_time + '</td>';
-                    str += '<td class="moreDec"  onclick="showMore(' + i + ',' + data[i].post_type + ')">详情</td>';
+                    if (data.data[i].post_type == 1) {
+                        str += '<td class="moreDec"  onclick="showMore(' + i + ',' + data.data[i].post_type + ')">详情</td>';
+                    } else {
+                        str += '<td class="moreDec">/</td>';
+                    }
                     str += '<td>';
                     str += '<ul class="doingBtns">';
-                    str += '<li onclick="show_confirm(' + data[i].role.id + ', ' + data[i].post_type + ', ' + data[i].id + ')">';
+                    str += '<li onclick="show_confirm(' + data.data[i].role_id + ', ' + data.data[i].post_type + ', ' + data.data[i].id + ')">';
                     str += '删';
                     str += '</li>';
-                    str += '<li onclick="subFn(' + i + ', ' + data[i].post_type + ')">';
+                    str += '<li onclick="subFn(' + i + ', ' + data.data[i].post_type + ')">';
                     str += '改';
                     str += '</li>';
-
-                    str += '<li onclick="more_detal(' + data[i].id + ',  ' + data[i].role.id + ',  ' + data[i].post_type + ')">';
+                    str += '<li onclick="more_detal(' + data.data[i].id + ',  ' + data.data[i].role_id + ',  ' + data.data[i].post_type + ')">';
                     str += '查看效果';
                     str += '</li>';
-
-
                     str += '</ul>';
                     str += '</td>';
                     str += '</tr>';
@@ -287,12 +286,12 @@
             backdrop: "static"
         });
         $.ajax({
-            url: '/api/v1/roles/all_roles/',
+            url: '/api/v1/portal/role/name_id_list/',
             type: "get",
             success: function (data) {
                 $('#element_id').cxSelect({
                     selects: ['role'], // 数组，请注意顺序
-                    data: data,
+                    data: data.data,
                     jsonName: 'name',
                     jsonValue: 'id'
                 });
@@ -413,10 +412,6 @@
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                // $('#fix-btn-close').click();
-                // $('#dataShow').html(' ');
-                // oneDo.fnDestroy();  
-                // tableDate();
                 window.location.reload()
             },
 
