@@ -184,9 +184,6 @@
             success: function (data) {
                 dataBase = data;
                 var str = ' ';
-                // var dec_ = data.dec;
-                // console.log('data====')
-                // console.log(data.length)
                 for (var i = 0; i < data.data.length; i++) {
                     str += '<tr>';
                     str += '<td>' + data.data[i].id + '</td>';
@@ -198,8 +195,8 @@
                     } else {
                         str += '<td>文章</td>';
                     }
-                    str += '<td>' + data[i].create_time + '</td>';
-                    if (data.data[i].post_type == 1) {
+                    str += '<td>' + data.data[i].create_time + '</td>';
+                    if (data.data[i].post_type == 0) {
                         str += '<td class="moreDec"  onclick="showMore(' + i + ',' + data.data[i].post_type + ')">详情</td>';
                     } else {
                         str += '<td class="moreDec">/</td>';
@@ -212,7 +209,7 @@
                     str += '<li onclick="subFn(' + i + ', ' + data.data[i].post_type + ')">';
                     str += '改';
                     str += '</li>';
-                    str += '<li onclick="more_detal(' + data.data[i].id + ',  ' + data.data[i].role_id + ',  ' + data.data[i].post_type + ')">';
+                    str += '<li onclick="more_detail(' + data.data[i].id + ',  ' + data.data[i].role_id + ',  ' + data.data[i].post_type + ')">';
                     str += '查看效果';
                     str += '</li>';
                     str += '</ul>';
@@ -309,14 +306,14 @@
     function showMore(num, type) {
 
         if (type == 0) {
-            $('#txtDec').html(dataBase[num].extra_info.content);
+            $('#txtDec').html(dataBase.data[num].content);
 
         } else {
             var str_ = '';
 
-            var image_list = dataBase[num].extra_info.image_list;
+            var image_list = dataBase.data[num].image_list;
             console.log('image_list');
-            console.log(dataBase[num]);
+            console.log(dataBase.data[num]);
 
             for (var i = 0; i < image_list.length; i++) {
                 str_ += '<img src="' + image_list[i].url + '" alt="">';
@@ -344,16 +341,16 @@
         var strF = "<div class='modal-backdrop fade in'></div>";
         $('.main-content').append(strF);
 
-        $("#fix_id").val(dataBase[idNum].id);
+        $("#fix_id").val(dataBase.data[idNum].id);
 
-        $("#fix_type").val(dataBase[idNum].post_type);
+        $("#fix_type").val(dataBase.data[idNum].post_type);
 
-        $('#fix_role_id').val(dataBase[idNum].role.id);
+        $('#fix_role_id').val(dataBase.data[idNum].role_id);
 
 
-        $('#fix_title').val(dataBase[idNum].title);
+        $('#fix_title').val(dataBase.data[idNum].title);
 
-        $('#fix_introduce').val(dataBase[idNum].introduce);
+        $('#fix_introduce').val(dataBase.data[idNum].introduce);
 
 
         if (type == 0) {
@@ -361,7 +358,7 @@
 
             $('#fix_content_show').removeClass('hidden', true);
 
-            $('#fix_content').val(dataBase[idNum].extra_info.content);
+            $('#fix_content').val(dataBase.data[idNum].content);
 
         } else {
 
@@ -425,7 +422,7 @@
 
     }
 
-    function more_detal(id, role_id, post_type) {
+    function more_detail(id, role_id, post_type) {
 
         var url = "";
 

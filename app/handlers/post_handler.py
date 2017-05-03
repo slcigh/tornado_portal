@@ -7,12 +7,12 @@ from app.handlers.base import BaseHandler
 class PostDefaultCoverHandler(BaseHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
-        datas = yield PostDefaultCover.list()
-        self.write({"data": datas})
+        data = yield PostDefaultCover.list()
+        self.write({"data": data})
 
 
 class PostHandler(BaseHandler):
     @gen.coroutine
     def get(self, *args, **kwargs):
-        datas = yield Post.list()
-        self.write({"data": datas})
+        data = yield Post.list(role_type='user')
+        self.write({"data": data})
